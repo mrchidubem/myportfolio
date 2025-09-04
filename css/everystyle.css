@@ -1173,3 +1173,152 @@ footer {
 }
 .toast.success { border-color: #3fb950; }
 .toast.error { border-color: #f85149; }
+
+/* ===== Modern theme overrides (non-breaking) ===== */
+:root {
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --shadow-sm: 0 6px 16px rgba(0,0,0,0.25);
+  --shadow-md: 0 12px 28px rgba(0,0,0,0.35);
+  --accent-grad: linear-gradient(135deg, #d4a373 0%, #a67c52 100%);
+}
+
+/* Typographic polish */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Glassy nav with active indicator */
+nav {
+  background: rgba(15, 15, 15, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 163, 115, 0.28);
+}
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+/* Hero polish */
+.hero {
+  position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(60% 40% at 50% 10%, rgba(255,255,255,0.05), transparent 60%);
+  pointer-events: none;
+}
+.avatar {
+  box-shadow: 0 0 0 2px rgba(212,163,115,0.35), 0 10px 24px rgba(0,0,0,0.35);
+}
+
+/* Button redesign: pill + gradient */
+.button,
+.view-certifications,
+.back-link,
+.project-item a,
+.cta .button {
+  border-radius: var(--radius-l);
+  border: 1px solid rgba(212, 163, 115, 0.35);
+  background: var(--accent-grad);
+  color: #111;
+  font-weight: 600;
+}
+.button:hover,
+.view-certifications:hover,
+.back-link:hover,
+.project-item a:hover,
+.cta .button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  filter: brightness(1.03);
+}
+
+/* Cards: larger radius, gentle zoom + shine on hover */
+.experience-card,
+.project-item,
+.education-card,
+.insights-card,
+.article-item,
+.certification-card {
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.project-item,
+.experience-card,
+.education-card,
+.insights-card,
+.article-item,
+.certification-card {
+  position: relative;
+}
+.project-item::before,
+.experience-card::before,
+.education-card::before,
+.insights-card::before,
+.article-item::before,
+.certification-card::before {
+  content: '';
+  position: absolute;
+  top: -80%;
+  left: -50%;
+  width: 120%;
+  height: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: rotate(12deg);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.project-item:hover::before,
+.experience-card:hover::before,
+.education-card:hover::before,
+.insights-card:hover::before,
+.article-item:hover::before,
+.certification-card:hover::before {
+  transform: rotate(12deg) translateY(140%);
+  opacity: 1;
+}
+
+/* Project images: zoom on hover */
+.project-image { transition: transform 0.35s ease; }
+.project-item:hover .project-image { transform: scale(1.02); }
+
+/* Skills: lift on hover */
+.skill-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Toast subtle glass style */
+.toast {
+  background: rgba(24, 24, 24, 0.9);
+  border: 1px solid rgba(212,163,115,0.35);
+  border-radius: var(--radius-s);
+}
+
+/* Footer social: subtle glow */
+.social-icons a {
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.social-icons a:hover {
+  box-shadow: 0 6px 16px rgba(212,163,115,0.25);
+}
