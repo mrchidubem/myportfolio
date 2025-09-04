@@ -8,15 +8,15 @@
   --text: #f1f5f9; /* Soft ivory text for dark mode */
 }
 
-/* Light theme variables applied when the theme toggle checkbox is checked */
-body:has(#theme-toggle:checked) {
+/* Light theme (disabled to prevent flicker) */
+/* body:has(#theme-toggle:checked) {
   --primary: #3a3a3a;
   --secondary: #e8e3d8;
   --accent: #8b6f47;
   --bg: #fdf6e3;
   --section-bg: #f4efe2;
   --text: #2a2a2a;
-}
+} */
 
 /* Reset default browser margins, padding, and box-sizing */
 * {
@@ -76,9 +76,10 @@ nav {
   z-index: 999;
 }
 
-body:has(#theme-toggle:checked) nav {
+/* Disabled: Light nav on toggle */
+/* body:has(#theme-toggle:checked) nav {
   background: rgba(253, 246, 227, 0.9);
-}
+} */
 
 /* Logo container */
 .circle-logo {
@@ -213,9 +214,10 @@ section {
   z-index: -1;
 }
 
-body:has(#theme-toggle:checked) .hero::before {
+/* Disabled: darker hero on toggle */
+/* body:has(#theme-toggle:checked) .hero::before {
   background: rgba(0, 0, 0, 0.7);
-}
+} */
 
 .hero h2 {
   font-size: 1.8rem;
@@ -225,10 +227,11 @@ body:has(#theme-toggle:checked) .hero::before {
   font-weight: 600;
 }
 
-body:has(#theme-toggle:checked) .hero h2 {
+/* Disabled alternate hero text on toggle */
+/* body:has(#theme-toggle:checked) .hero h2 {
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
+} */
 
 .hero p {
   font-size: 0.9rem;
@@ -239,10 +242,11 @@ body:has(#theme-toggle:checked) .hero h2 {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-body:has(#theme-toggle:checked) .hero p {
+/* Disabled alternate hero p on toggle */
+/* body:has(#theme-toggle:checked) .hero p {
   color: #ffffff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
+} */
 
 .hero .button {
   margin-top: 25px;
@@ -259,10 +263,11 @@ body:has(#theme-toggle:checked) .hero p {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-body:has(#theme-toggle:checked) .hero .button {
+/* Disabled alternate button on toggle */
+/* body:has(#theme-toggle:checked) .hero .button {
   color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-}
+} */
 
 .hero .button:hover {
   transform: scale(1.02);
@@ -481,9 +486,10 @@ body:has(#theme-toggle:checked) .hero .button {
   transition: transform 0.2s;
 }
 
-body:has(#theme-toggle:checked) .skill-note {
+/* Disabled alternate skill-note color */
+/* body:has(#theme-toggle:checked) .skill-note {
   color: var(--text);
-}
+} */
 
 .skill-card:hover .skill-note {
   transform: translateY(-1px);
@@ -810,9 +816,10 @@ body:has(#theme-toggle:checked) .skill-note {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-body:has(#theme-toggle:checked) .cta p {
+/* Disabled alternate cta on toggle */
+/* body:has(#theme-toggle:checked) .cta p {
   color: var(--text);
-}
+} */
 
 .cta-buttons {
   display: flex;
@@ -967,9 +974,10 @@ footer {
     overflow-x: hidden;
   }
 
-  body:has(#theme-toggle:checked) .hero {
+  /* Disabled alternate hero on toggle */
+  /* body:has(#theme-toggle:checked) .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/photo.jpg') no-repeat center/cover;
-  }
+  } */
 
   .hero h2 { font-size: 1.5rem; }
   .hero p { font-size: 0.85rem; padding: 0 15px; }
@@ -1024,9 +1032,10 @@ footer {
     background-attachment: scroll;
     overflow-x: hidden;
   }
-  body:has(#theme-toggle:checked) .hero {
+  /* Disabled alternate hero (toggle) */
+  /* body:has(#theme-toggle:checked) .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/photo.jpg') no-repeat center/cover;
-  }
+  } */
   .hero h2 { font-size: 1.3rem; }
   .hero p { font-size: 0.8rem; }
   .hero .button { padding: 6px 16px; font-size: 0.75rem; }
