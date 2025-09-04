@@ -1061,3 +1061,47 @@ footer {
   .view-certifications { font-size: 0.7rem; padding: 6px 10px; }
   .back-link { font-size: 0.7rem; padding: 6px 10px; }
 }
+
+/* Active nav link styling */
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* Reveal on scroll helpers */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 1000;
+}
+.toast {
+  background: rgba(20, 20, 20, 0.95);
+  color: #fff;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  animation: fadeUp 0.4s ease forwards;
+}
+.toast.success { border-color: #3fb950; }
+.toast.error { border-color: #f85149; }
