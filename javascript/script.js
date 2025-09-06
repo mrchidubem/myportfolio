@@ -84,4 +84,121 @@
       form.reset();
     });
   }
+
+  // Modern Skills Section Functionality
+  const skillCards = qsa('.skill-card');
+  const skillButtons = qsa('.skill-btn');
+  
+  // Animate progress bars when skills section comes into view
+  const skillsSection = qs('#skills');
+  if (skillsSection && skillCards.length > 0) {
+    const skillsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          skillCards.forEach((card, index) => {
+            setTimeout(() => {
+              const progressFill = card.querySelector('.progress-fill');
+              const dataWidth = progressFill?.getAttribute('data-width');
+              if (progressFill && dataWidth) {
+                progressFill.style.setProperty('--progress-width', dataWidth);
+                card.classList.add('in-view');
+              }
+            }, index * 150); // Staggered animation
+          });
+          skillsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    skillsObserver.observe(skillsSection);
+  }
+
+  // Skill card interactions
+  skillCards.forEach(card => {
+    // Add click functionality to skill cards
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('.skill-btn')) return; // Don't trigger if button was clicked
+      
+      const skillName = card.querySelector('.skill-name')?.textContent;
+      const skillLevel = card.querySelector('.level-text')?.textContent;
+      const skillDesc = card.querySelector('.skill-description')?.textContent;
+      
+      showToast(`${skillName} - ${skillLevel}: ${skillDesc}`, 'success');
+      
+      // Add a subtle pulse effect
+      card.style.animation = 'pulse 0.6s ease';
+      setTimeout(() => {
+        card.style.animation = '';
+      }, 600);
+    });
+
+    // Enhanced hover effects
+    card.addEventListener('mouseenter', () => {
+      const icon = card.querySelector('.skill-icon');
+      if (icon) {
+        icon.style.transform = 'scale(1.1) rotate(5deg)';
+      }
+    });
+
+    card.addEventListener('mouseleave', () => {
+      const icon = card.querySelector('.skill-icon');
+      if (icon) {
+        icon.style.transform = 'scale(1) rotate(0deg)';
+      }
+    });
+  });
+
+  // Skill button functionality
+  skillButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card click
+      
+      const card = btn.closest('.skill-card');
+      const skillName = card?.querySelector('.skill-name')?.textContent;
+      const skillData = card?.getAttribute('data-skill');
+      
+      // Create a more detailed interaction
+      const skillInfo = {
+        python: 'Check out my Python projects on GitHub!',
+        django: 'Explore my Django web applications!',
+        nodejs: 'See my Node.js backend projects!',
+        javascript: 'View my interactive JavaScript applications!',
+        react: 'Discover my React component libraries!',
+        'html-css': 'Browse my responsive web designs!',
+        aws: 'Learn about my cloud architecture projects!',
+        docker: 'See my containerized applications!',
+        cicd: 'Explore my automated deployment pipelines!',
+        mongodb: 'Check out my NoSQL database projects!',
+        mysql: 'View my relational database designs!'
+      };
+      
+      const message = skillInfo[skillData] || `Learn more about my ${skillName} expertise!`;
+      showToast(message, 'success');
+      
+      // Add button animation
+      btn.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        btn.style.transform = 'scale(1)';
+      }, 150);
+    });
+  });
+
+  // Add keyboard navigation for skill cards
+  skillCards.forEach(card => {
+    card.setAttribute('tabindex', '0');
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+
+  // Add floating animation to skill icons
+  const skillIcons = qsa('.skill-icon');
+  skillIcons.forEach((icon, index) => {
+    icon.style.animationDelay = `${index * 0.2}s`;
+    icon.style.animation = 'float 3s ease-in-out infinite';
+  });
+
 })();
