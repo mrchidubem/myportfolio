@@ -208,6 +208,18 @@
     icon.style.animation = 'float 3s ease-in-out infinite';
   });
 
+  // Animate progress bars on page load
+  const allProgressBars = qsa('.progress-fill');
+  allProgressBars.forEach((bar, index) => {
+    const dataWidth = bar.getAttribute('data-width');
+    if (dataWidth) {
+      setTimeout(() => {
+        bar.style.setProperty('--progress-width', dataWidth);
+        bar.style.width = dataWidth;
+      }, index * 100); // Staggered animation
+    }
+  });
+
   // Make "View Certificates" button functional
   const viewCertificatesBtn = qs('.view-certifications');
   if (viewCertificatesBtn) {
