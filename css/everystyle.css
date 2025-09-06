@@ -137,13 +137,23 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
   z-index: 1000;
   transition: all var(--transition-normal);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
 }
 
 /* Disabled: Light nav on toggle */
@@ -327,14 +337,8 @@ section {
   align-items: center;
   text-align: center;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 153, 204, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%),
-    url('../images/photo.jpg') no-repeat center/cover;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 25%, #0f0f0f 50%, #1a1a1a 75%, #0a0a0a 100%),
+    radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
   position: relative;
   margin: 0;
   padding: 0;
@@ -349,15 +353,9 @@ section {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 30% 20%, rgba(0, 212, 255, 0.15) 0%, transparent 30%),
-    radial-gradient(circle at 70% 80%, rgba(0, 153, 204, 0.15) 0%, transparent 30%);
-  animation: backgroundShift 20s ease-in-out infinite;
+    linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.03) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(0, 153, 204, 0.03) 50%, transparent 70%);
   z-index: 1;
-}
-
-@keyframes backgroundShift {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
 }
 
 .hero::before {
@@ -370,34 +368,6 @@ section {
   z-index: -1;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(2px 2px at 20px 30px, rgba(0, 212, 255, 0.4), transparent),
-    radial-gradient(2px 2px at 40px 70px, rgba(0, 153, 204, 0.4), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(0, 212, 255, 0.5), transparent),
-    radial-gradient(1px 1px at 130px 80px, rgba(0, 153, 204, 0.4), transparent),
-    radial-gradient(2px 2px at 160px 30px, rgba(0, 212, 255, 0.3), transparent),
-    radial-gradient(1px 1px at 200px 60px, rgba(0, 153, 204, 0.3), transparent);
-  background-repeat: repeat;
-  background-size: 250px 120px;
-  animation: particleFloat 25s linear infinite;
-  z-index: 2;
-  pointer-events: none;
-}
-
-@keyframes particleFloat {
-  0% { transform: translateY(0px) translateX(0px); }
-  25% { transform: translateY(-20px) translateX(15px); }
-  50% { transform: translateY(-40px) translateX(-10px); }
-  75% { transform: translateY(-20px) translateX(25px); }
-  100% { transform: translateY(0px) translateX(0px); }
-}
 
 @keyframes textGlow {
   0% { 
@@ -410,90 +380,6 @@ section {
   }
 }
 
-/* Floating Geometric Shapes */
-.floating-shapes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.shape {
-  position: absolute;
-  border: 2px solid rgba(0, 212, 255, 0.3);
-  border-radius: 50%;
-  animation: floatShape 15s ease-in-out infinite;
-}
-
-.shape-1 {
-  width: 80px;
-  height: 80px;
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-  border-color: rgba(0, 212, 255, 0.4);
-}
-
-.shape-2 {
-  width: 60px;
-  height: 60px;
-  top: 60%;
-  right: 15%;
-  animation-delay: 3s;
-  border-color: rgba(0, 153, 204, 0.3);
-  border-radius: 0;
-  transform: rotate(45deg);
-}
-
-.shape-3 {
-  width: 100px;
-  height: 100px;
-  top: 30%;
-  right: 20%;
-  animation-delay: 6s;
-  border-color: rgba(0, 212, 255, 0.2);
-}
-
-.shape-4 {
-  width: 40px;
-  height: 40px;
-  bottom: 30%;
-  left: 20%;
-  animation-delay: 9s;
-  border-color: rgba(0, 153, 204, 0.4);
-  border-radius: 0;
-}
-
-.shape-5 {
-  width: 120px;
-  height: 120px;
-  bottom: 20%;
-  right: 10%;
-  animation-delay: 12s;
-  border-color: rgba(0, 212, 255, 0.25);
-}
-
-@keyframes floatShape {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  25% { 
-    transform: translateY(-20px) translateX(10px) rotate(90deg);
-    opacity: 0.6;
-  }
-  50% { 
-    transform: translateY(-40px) translateX(-15px) rotate(180deg);
-    opacity: 0.4;
-  }
-  75% { 
-    transform: translateY(-20px) translateX(20px) rotate(270deg);
-    opacity: 0.5;
-  }
-}
 
 /* Disabled: darker hero on toggle */
 /* body:has(#theme-toggle:checked) .hero::before {
@@ -1116,17 +1002,17 @@ section {
 
 .skill-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 36px;
-  height: 36px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  color: var(--text-secondary);
-  font-size: 14px;
+  top: 15px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 6px;
+  color: rgba(0, 212, 255, 0.8);
+  font-size: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1135,10 +1021,11 @@ section {
 }
 
 .skill-btn:hover {
-  background: var(--gradient-primary);
-  color: var(--primary);
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,212,255,0.3);
+  background: rgba(0, 212, 255, 0.2);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.4);
+  border-color: rgba(0, 212, 255, 0.6);
 }
 
 .skill-btn:active {
@@ -1194,9 +1081,11 @@ section {
   }
   
   .skill-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+    top: 12px;
+    right: 12px;
   }
 }
 
