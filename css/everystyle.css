@@ -1067,6 +1067,183 @@ section {
   .skill-description {
     font-size: 0.8rem;
   }
+  
+  /* Testimonials responsive */
+  .testimonials-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-content p {
+    font-size: 1rem;
+  }
+  
+  /* Achievements responsive */
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .achievement-card {
+    padding: 20px;
+  }
+  
+  .achievement-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .achievement-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .achievement-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Testimonials section styling */
+.testimonials {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.testimonials-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: serif;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-color: rgba(0,212,255,0.3);
+}
+
+.testimonial-content {
+  margin-bottom: 20px;
+}
+
+.testimonial-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-style: italic;
+  margin: 0;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.author-info h4 {
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin: 0 0 5px 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.author-info span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Achievements section styling */
+.achievements {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.achievements-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.achievement-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.achievement-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border-color: rgba(0,212,255,0.3);
+}
+
+.achievement-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2rem;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-icon {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 8px 20px rgba(0,212,255,0.3);
+}
+
+.achievement-card h3 {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 15px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.achievement-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Certifications section styling */

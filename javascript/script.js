@@ -162,14 +162,21 @@
         python: 'Check out my Python projects on GitHub!',
         django: 'Explore my Django web applications!',
         nodejs: 'See my Node.js backend projects!',
+        c: 'View my C programming and system projects!',
         javascript: 'View my interactive JavaScript applications!',
         react: 'Discover my React component libraries!',
         'html-css': 'Browse my responsive web designs!',
+        vue: 'Explore my Vue.js applications!',
         aws: 'Learn about my cloud architecture projects!',
         docker: 'See my containerized applications!',
         cicd: 'Explore my automated deployment pipelines!',
+        kubernetes: 'Check out my container orchestration projects!',
         mongodb: 'Check out my NoSQL database projects!',
-        mysql: 'View my relational database designs!'
+        mysql: 'View my relational database designs!',
+        zapier: 'See my workflow automation solutions!',
+        airtable: 'Explore my database management projects!',
+        make: 'Check out my visual automation workflows!',
+        n8n: 'View my open-source automation projects!'
       };
       
       const message = skillInfo[skillData] || `Learn more about my ${skillName} expertise!`;
@@ -199,6 +206,47 @@
   skillIcons.forEach((icon, index) => {
     icon.style.animationDelay = `${index * 0.2}s`;
     icon.style.animation = 'float 3s ease-in-out infinite';
+  });
+
+  // Make "View Certificates" button functional
+  const viewCertificatesBtn = qs('.view-certifications');
+  if (viewCertificatesBtn) {
+    viewCertificatesBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const certificationsSection = qs('#certifications');
+      if (certificationsSection) {
+        // Show certifications section
+        certificationsSection.style.display = 'block';
+        certificationsSection.style.opacity = '1';
+        
+        // Hide education section
+        const educationSection = qs('#education');
+        if (educationSection) {
+          educationSection.style.display = 'none';
+          educationSection.style.opacity = '0';
+        }
+        
+        // Scroll to certifications
+        certificationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Update URL hash
+        window.history.pushState(null, null, '#certifications');
+        
+        showToast('Certifications section loaded!', 'success');
+      }
+    });
+  }
+
+  // Add back link functionality for certifications
+  const backLinks = qsa('.back-link');
+  backLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetSection = qs(link.getAttribute('href'));
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
 
 })();
