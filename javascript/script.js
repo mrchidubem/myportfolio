@@ -226,20 +226,31 @@
     viewCertificatesBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const certificationsSection = qs('#certifications');
-      if (certificationsSection) {
-        // Show certifications section
-        certificationsSection.style.display = 'block';
-        certificationsSection.style.opacity = '1';
+      const educationSection = qs('#education');
+      
+      if (certificationsSection && educationSection) {
+        // Hide education section with smooth transition
+        educationSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        educationSection.style.opacity = '0';
+        educationSection.style.transform = 'translateY(-20px)';
         
-        // Hide education section
-        const educationSection = qs('#education');
-        if (educationSection) {
+        setTimeout(() => {
           educationSection.style.display = 'none';
-          educationSection.style.opacity = '0';
-        }
+          
+          // Show certifications section with smooth transition
+          certificationsSection.style.display = 'block';
+          certificationsSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          
+          setTimeout(() => {
+            certificationsSection.style.opacity = '1';
+            certificationsSection.style.transform = 'translateY(0)';
+          }, 50);
+        }, 300);
         
         // Scroll to certifications
-        certificationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          certificationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
         
         // Update URL hash
         window.history.pushState(null, null, '#certifications');
@@ -254,9 +265,37 @@
   backLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetSection = qs(link.getAttribute('href'));
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const certificationsSection = qs('#certifications');
+      const educationSection = qs('#education');
+      
+      if (certificationsSection && educationSection) {
+        // Hide certifications section with smooth transition
+        certificationsSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        certificationsSection.style.opacity = '0';
+        certificationsSection.style.transform = 'translateY(-20px)';
+        
+        setTimeout(() => {
+          certificationsSection.style.display = 'none';
+          
+          // Show education section with smooth transition
+          educationSection.style.display = 'block';
+          educationSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          
+          setTimeout(() => {
+            educationSection.style.opacity = '1';
+            educationSection.style.transform = 'translateY(0)';
+          }, 50);
+        }, 300);
+        
+        // Scroll to education
+        setTimeout(() => {
+          educationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 400);
+        
+        // Update URL hash
+        window.history.pushState(null, null, '#education');
+        
+        showToast('Back to Education section!', 'success');
       }
     });
   });
