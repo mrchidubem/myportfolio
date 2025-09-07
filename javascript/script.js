@@ -2,6 +2,17 @@
   const qs = (sel, ctx=document) => ctx.querySelector(sel);
   const qsa = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
+  // Navigation toggle for mobile
+  const navToggleBtn = qs('.nav-toggle-btn');
+  const navLinks = qs('.nav-links');
+  if (navToggleBtn && navLinks) {
+    navToggleBtn.addEventListener('click', () => {
+      const isExpanded = navToggleBtn.getAttribute('aria-expanded') === 'true';
+      navToggleBtn.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+    });
+  }
+
   // Smooth scroll for internal links
   qsa('a[href^="#"]').forEach(link => {
     link.addEventListener('click', evt => {
@@ -13,14 +24,16 @@
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       // Close mobile nav if open
-      const navToggle = qs('#nav-toggle');
-      if (navToggle && navToggle.checked) navToggle.checked = false;
+      if (navToggleBtn && navToggleBtn.getAttribute('aria-expanded') === 'true') {
+        navToggleBtn.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('active');
+      }
     });
   });
 
   // Active nav link on scroll
   const sections = qsa('section[id]');
-  const navLinks = qsa('.nav-links a');
+  const navLinksItems = qsa('.nav-links a');
   const setActive = () => {
     const scrollPos = window.scrollY + 100; // offset for fixed nav
     let currentId = sections[0]?.id;
@@ -28,12 +41,20 @@
       const top = sec.offsetTop;
       if (scrollPos >= top) currentId = sec.id;
     });
-    navLinks.forEach(a => {
+    navLinksItems.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
     });
   };
   window.addEventListener('scroll', setActive, { passive: true });
   window.addEventListener('load', setActive);
+
+  // Theme toggle
+  const themeToggle = qs('#theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+      document.documentElement.setAttribute('data-theme', themeToggle.checked ? 'light' : 'dark');
+    });
+  }
 
   // Reveal-on-scroll using IntersectionObserver
   const revealEls = qsa('.reveal');
@@ -85,7 +106,7 @@
     });
   }
 
-  // Modern Skills Section Functionality
+  // Skills section functionality
   const skillCards = qsa('.skill-card');
   const skillButtons = qsa('.skill-btn');
   
@@ -100,8 +121,7 @@
               const progressFill = card.querySelector('.progress-fill');
               const dataWidth = progressFill?.getAttribute('data-width');
               if (progressFill && dataWidth) {
-                progressFill.style.setProperty('--progress-width', dataWidth);
-                card.classList.add('in-view');
+                progressFill.style.width = dataWidth;
               }
             }, index * 150); // Staggered animation
           });
@@ -113,191 +133,37 @@
     skillsObserver.observe(skillsSection);
   }
 
-  // Skill card interactions
-  skillCards.forEach(card => {
-    // Add click functionality to skill cards
-    card.addEventListener('click', (e) => {
-      if (e.target.closest('.skill-btn')) return; // Don't trigger if button was clicked
-      
-      const skillName = card.querySelector('.skill-name')?.textContent;
-      const skillLevel = card.querySelector('.level-text')?.textContent;
-      const skillDesc = card.querySelector('.skill-description')?.textContent;
-      
-      showToast(`${skillName} - ${skillLevel}: ${skillDesc}`, 'success');
-      
-      // Add a subtle pulse effect
-      card.style.animation = 'pulse 0.6s ease';
-      setTimeout(() => {
-        card.style.animation = '';
-      }, 600);
-    });
-
-    // Enhanced hover effects
-    card.addEventListener('mouseenter', () => {
-      const icon = card.querySelector('.skill-icon');
-      if (icon) {
-        icon.style.transform = 'scale(1.1) rotate(5deg)';
-      }
-    });
-
-    card.addEventListener('mouseleave', () => {
-      const icon = card.querySelector('.skill-icon');
-      if (icon) {
-        icon.style.transform = 'scale(1) rotate(0deg)';
-      }
-    });
-  });
-
   // Skill button functionality
   skillButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      e.stopPropagation(); // Prevent card click
-      
-      const card = btn.closest('.skill-card');
-      const skillName = card?.querySelector('.skill-name')?.textContent;
-      const skillData = card?.getAttribute('data-skill');
-      
-      // Create a more detailed interaction
-      const skillInfo = {
-        python: 'Check out my Python projects on GitHub!',
-        django: 'Explore my Django web applications!',
-        nodejs: 'See my Node.js backend projects!',
-        c: 'View my C programming and system projects!',
-        javascript: 'View my interactive JavaScript applications!',
-        react: 'Discover my React component libraries!',
-        'html-css': 'Browse my responsive web designs!',
-        vue: 'Explore my Vue.js applications!',
-        aws: 'Learn about my cloud architecture projects!',
-        docker: 'See my containerized applications!',
-        cicd: 'Explore my automated deployment pipelines!',
-        kubernetes: 'Check out my container orchestration projects!',
-        mongodb: 'Check out my NoSQL database projects!',
-        mysql: 'View my relational database designs!',
-        zapier: 'See my workflow automation solutions!',
-        airtable: 'Explore my database management projects!',
-        make: 'Check out my visual automation workflows!',
-        n8n: 'View my open-source automation projects!'
-      };
-      
-      const message = skillInfo[skillData] || `Learn more about my ${skillName} expertise!`;
-      showToast(message, 'success');
-      
-      // Add button animation
-      btn.style.transform = 'scale(0.9)';
-      setTimeout(() => {
-        btn.style.transform = 'scale(1)';
-      }, 150);
-    });
-  });
-
-  // Add keyboard navigation for skill cards
-  skillCards.forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        card.click();
-      }
-    });
-  });
-
-  // Add floating animation to skill icons
-  const skillIcons = qsa('.skill-icon');
-  skillIcons.forEach((icon, index) => {
-    icon.style.animationDelay = `${index * 0.2}s`;
-    icon.style.animation = 'float 3s ease-in-out infinite';
-  });
-
-  // Animate progress bars on page load
-  const allProgressBars = qsa('.progress-fill');
-  allProgressBars.forEach((bar, index) => {
-    const dataWidth = bar.getAttribute('data-width');
-    if (dataWidth) {
-      setTimeout(() => {
-        bar.style.setProperty('--progress-width', dataWidth);
-        bar.style.width = dataWidth;
-      }, index * 100); // Staggered animation
-    }
-  });
-
-  // Make "View Certificates" button functional
-  const viewCertificatesBtn = qs('.view-certifications');
-  if (viewCertificatesBtn) {
-    viewCertificatesBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const certificationsSection = qs('#certifications');
-      const educationSection = qs('#education');
-      
-      if (certificationsSection && educationSection) {
-        // Hide education section with smooth transition
-        educationSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-        educationSection.style.opacity = '0';
-        educationSection.style.transform = 'translateY(-20px)';
-        
-        setTimeout(() => {
-          educationSection.style.display = 'none';
-          
-          // Show certifications section with smooth transition
-          certificationsSection.style.display = 'block';
-          certificationsSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          
-          setTimeout(() => {
-            certificationsSection.style.opacity = '1';
-            certificationsSection.style.transform = 'translateY(0)';
-          }, 50);
-        }, 300);
-        
-        // Scroll to certifications
-        setTimeout(() => {
-          certificationsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 400);
-        
-        // Update URL hash
-        window.history.pushState(null, null, '#certifications');
-        
-        showToast('Certifications section loaded!', 'success');
+      const skill = btn.closest('.skill-card').getAttribute('data-skill');
+      if (skill) {
+        window.location.href = `#projects?skill=${skill}`;
       }
     });
+  });
+
+  // Create particle elements for hero section
+  const hero = qs('.hero');
+  if (hero) {
+    const particleContainer = document.createElement('div');
+    particleContainer.className = 'hero-particles';
+    for (let i = 0; i < 4; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particleContainer.appendChild(particle);
+    }
+    hero.appendChild(particleContainer);
   }
 
-  // Add back link functionality for certifications
-  const backLinks = qsa('.back-link');
-  backLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  // Add smooth scroll for back-to-top button
+  const backToTop = qs('.back-to-top');
+  if (backToTop) {
+    backToTop.addEventListener('click', (e) => {
       e.preventDefault();
-      const certificationsSection = qs('#certifications');
-      const educationSection = qs('#education');
-      
-      if (certificationsSection && educationSection) {
-        // Hide certifications section with smooth transition
-        certificationsSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-        certificationsSection.style.opacity = '0';
-        certificationsSection.style.transform = 'translateY(-20px)';
-        
-        setTimeout(() => {
-          certificationsSection.style.display = 'none';
-          
-          // Show education section with smooth transition
-          educationSection.style.display = 'block';
-          educationSection.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          
-          setTimeout(() => {
-            educationSection.style.opacity = '1';
-            educationSection.style.transform = 'translateY(0)';
-          }, 50);
-        }, 300);
-        
-        // Scroll to education
-        setTimeout(() => {
-          educationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 400);
-        
-        // Update URL hash
-        window.history.pushState(null, null, '#education');
-        
-        showToast('Back to Education section!', 'success');
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-  });
+  }
 
 })();

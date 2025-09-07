@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Character encoding and responsive viewport for cross-device compatibility -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
-  <!-- SEO and social sharing meta tags for better visibility -->
   <meta name="description" content="Portfolio of Joseph Chidubem Okafor, Full Stack Software Engineer and Cloud Architect.">
   <meta name="keywords" content="Joseph Chidubem Okafor, Full Stack Developer, Cloud Architect, Portfolio">
   <meta name="author" content="Joseph Chidubem Okafor">
   <meta property="og:title" content="Joseph Chidubem Okafor | Portfolio">
   <meta property="og:description" content="Explore the portfolio of Joseph Chidubem Okafor, a Full Stack Software Engineer and Cloud Architect.">
   <meta property="og:image" content="images/og-image.jpg">
-  
-  <!-- Page title and favicon for branding -->
   <title>Joseph | Portfolio</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  
-  <!-- Preload images to improve page load performance -->
   <link rel="preload" href="images/9.avif" as="image">
   <link rel="preload" href="images/dube.jpg" as="image">
   <link rel="preload" href="images/carecycle.webp" as="image">
   <link rel="preload" href="images/shell.png" as="image">
-  
-  <!-- Google Fonts for consistent typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome for icons and custom CSS for styling -->
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/everystyle.css">
 </head>
 <body>
-  <!-- Navigation bar with fixed positioning for easy access across sections -->
   <nav aria-label="Main navigation">
     <a href="#" class="circle-logo">
       <div class="circle">D</div>
@@ -44,10 +32,8 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <!-- <li><a href="#certifications">Certifications</a></li> -->
       <li><a href="#education">Education</a></li>
-      <!-- <li><a href="#testimonials">Testimonials</a></li> -->
-      <li><a href="#insights-updates">Insights & Updates</a></li>
+      <li><a href="#insights-updates">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="theme-controls-wrapper">
@@ -59,27 +45,26 @@
     </div>
   </nav>
 
-  <!-- Hero section: Introduces Joseph with a call-to-action to engage viewers -->
-  <section class="hero" id="home" role="region" aria-labelledby="home-heading">
+  <section class="hero reveal" id="home" role="region" aria-labelledby="home-heading">
     <div class="avatar"></div>
     <h2 id="home-heading">Joseph Chidubem Okafor</h2>
     <p>Full Stack Software Engineer | Cloud Architect</p>
     <a href="#projects" class="button" aria-label="Explore Joseph's projects">Explore My Work</a>
   </section>
 
-  <!-- About section: Provides a personal and professional overview to set context -->
-  <section class="about" id="about" role="region" aria-labelledby="about-heading">
+  <section class="about reveal" id="about" role="region" aria-labelledby="about-heading">
     <h2 id="about-heading">About Me</h2>
-    <p>
-      I’m Joseph Chidubem Okafor, a Full Stack Software Engineer and Cloud Architect passionate about crafting innovative, user-focused solutions.<br>
-      With a B.Eng. in Electronic Engineering from the University of Nigeria Nsukka, I blend hardware expertise with software innovation. My journey includes roles as an Electrical Engineer at Evergreen Technology, Solutions Architect at CAP Nigeria, and Python Developer at PACUSS Global Ventures.<br>
-      Trained through ALX, 3MTT, and IHS, I specialize in Full Stack Development, DevOps, and Generative AI, leading projects like the HIPAA-compliant CareCycle Hospital Management System using Django and MySQL.<br>
-      Driven by purpose, I aim to create impactful technology, optimize user experiences, and mentor aspiring developers in communities like ALX Africa.
-    </p>
+    <div class="about-container">
+      <p>
+        I’m Joseph Chidubem Okafor, a Full Stack Software Engineer and Cloud Architect passionate about crafting innovative, user-focused solutions.<br>
+        With a B.Eng. in Electronic Engineering from the University of Nigeria Nsukka, I blend hardware expertise with software innovation. My journey includes roles as an Electrical Engineer at Evergreen Technology, Solutions Architect at CAP Nigeria, and Python Developer at PACUSS Global Ventures.<br>
+        Trained through ALX, 3MTT, and IHS, I specialize in Full Stack Development, DevOps, and Generative AI, leading projects like the HIPAA-compliant CareCycle Hospital Management System using Django and MySQL.<br>
+        Driven by purpose, I aim to create impactful technology, optimize user experiences, and mentor aspiring developers in communities like ALX Africa.
+      </p>
+    </div>
   </section>
 
-  <!-- Experience section: Highlights professional roles and achievements to showcase expertise -->
-  <section class="experience" id="experience" role="region" aria-labelledby="experience-heading">
+  <section class="experience reveal" id="experience" role="region" aria-labelledby="experience-heading">
     <h2 id="experience-heading">Experience</h2>
     <div class="experience-grid">
       <div class="experience-card">
@@ -95,80 +80,454 @@
     </div>
   </section>
 
-  <!-- Projects section: Showcases key projects with visuals and tech details to demonstrate skills -->
-  <section class="projects" id="projects" role="region" aria-labelledby="projects-heading">
+  <section class="projects reveal" id="projects" role="region" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
-    <div class="project-item">
-      <div class="project-image" style="background-image: url('images/carecycle.webp');"></div>
-      <h3>Care Cycle: Personalized Healthcare Platform</h3>
-      <p>A Django-based web app for managing patient care cycles, with real-time data integration and secure authentication.</p>
-      <div class="tech-badges">
-        <span class="tech-badge">Django</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">MongoDB</span>
+    <div class="project-grid">
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/carecycle.webp');"></div>
+        <h3>Care Cycle: Personalized Healthcare Platform</h3>
+        <p>A Django-based web app for managing patient care cycles, with real-time data integration and secure authentication.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">Django</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">MongoDB</span>
+        </div>
+        <a href="https://hospital-management-app-web.vercel.app/" target="_blank" aria-label="View CareCycle project">View Project</a>
       </div>
-      <a href="https://hospital-management-app-web.vercel.app/" target="_blank" aria-label="View CareCycle project">View Project</a>
-    </div>
-    <div class="project-item">
-      <div class="project-image" style="background-image: url('https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg');"></div>
-      <h3>Airbnb Clone (In Progress)</h3>
-      <p>A scalable web application built with Django and JavaScript, featuring user authentication, property listings, and booking functionality. Reduced load time by 20% with optimized APIs.</p>
-      <div class="tech-badges">
-        <span class="tech-badge">Django</span>
-        <span class="tech-badge">JavaScript</span>
-        <span class="tech-badge">MySQL</span>
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/3.jpg');"></div>
+        <h3>Airbnb Clone (In Progress)</h3>
+        <p>A scalable web application built with Django and JavaScript, featuring user authentication, property listings, and booking functionality. Reduced load time by 20% with optimized APIs.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">Django</span>
+          <span class="tech-badge">JavaScript</span>
+          <span class="tech-badge">MySQL</span>
+        </div>
+        <a href="https://github.com/mrchidubem" target="_blank" aria-label="View Airbnb-Clone project">View Project</a>
       </div>
-      <a href="https://github.com/mrchidubem" target="_blank" aria-label="View Airbnb-Clone project">View Project</a>
-    </div>
-    <div class="project-item">
-      <div class="project-image" style="background-image: url('images/shell.png');"></div>
-      <h3>Simple Shell</h3>
-      <p>A custom Unix command-line interpreter built from scratch as part of the ALX Software Engineering program.</p>
-      <div class="tech-badges">
-        <span class="tech-badge">C</span>
-        <span class="tech-badge">Linux System Calls</span>
-        <span class="tech-badge">GCC</span>
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/shell.png');"></div>
+        <h3>Simple Shell</h3>
+        <p>A custom Unix command-line interpreter built from scratch as part of the ALX Software Engineering program.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">C</span>
+          <span class="tech-badge">Linux System Calls</span>
+          <span class="tech-badge">GCC</span>
+        </div>
+        <a href="https://github.com/mrchidubem" target="_blank" aria-label="View Simple-Shell project">View Project</a>
       </div>
-      <a href="https://github.com/mrchidubem" target="_blank" aria-label="View Simple-Shell project">View Project</a>
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/4.jpg');"></div>
+        <h3>Budget Buddy</h3>
+        <p>A comprehensive personal finance management application built with Django and React. Features expense tracking, budget planning, financial analytics, and automated categorization using AI.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">Django</span>
+          <span class="tech-badge">React</span>
+          <span class="tech-badge">PostgreSQL</span>
+          <span class="tech-badge">AI Integration</span>
+        </div>
+        <a href="https://budget-buddy-vibe-coding.onrender.com/" target="_blank" aria-label="View Budget Buddy project">View Project</a>
+      </div>
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/7.jpg');"></div>
+        <h3>Recipe Reminder</h3>
+        <p>A smart recipe management app that helps users organize their favorite recipes, plan meals, and get cooking reminders. Features AI-powered ingredient suggestions and nutritional analysis.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">Vue.js</span>
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">MongoDB</span>
+          <span class="tech-badge">AI Integration</span>
+        </div>
+        <a href="https://github.com/mrchidubem" target="_blank" aria-label="View Recipe Reminder project">View Project</a>
+      </div>
+      <div class="project-item">
+        <div class="project-image" style="background-image: url('images/6.avif');"></div>
+        <h3>AI Study Buddy</h3>
+        <p>An intelligent study companion that creates personalized study plans, tracks learning progress, and provides AI-powered explanations. Features spaced repetition and adaptive learning algorithms.</p>
+        <div class="tech-badges">
+          <span class="tech-badge">Lovable</span>
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">TensorFlow</span>
+          <span class="tech-badge">Superbase</span>
+        </div>
+        <a href="https://github.com/mrchidubem" target="_blank" aria-label="View AI Study Buddy project">View Project</a>
+      </div>
     </div>
   </section>
 
-  <!-- Skills section: Lists technical skills with images on top and writeups below -->
-  <section class="skills" id="skills" role="region" aria-labelledby="skills-heading">
-    <h2 id="skills-heading">Skills</h2>
+  <section class="skills reveal" id="skills" role="region" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills & Technologies</h2>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3 class="category-title">Backend Development</h3>
     <div class="skill-grid">
-      <div class="skill-card" aria-label="Python skill">
-        <span class="skill-note">Proficient in Python for backend development, scripting, and automation.</span>
+          <div class="skill-card" data-skill="python" data-level="90">
+            <div class="skill-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Python</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="90%"></div>
+                </div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">Backend development, scripting, and automation</p>
+            </div>
+            <button class="skill-btn" aria-label="View Python projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="django" data-level="85">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Django</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="85%"></div>
+                </div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">Secure, scalable web applications</p>
+            </div>
+            <button class="skill-btn" aria-label="View Django projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="nodejs" data-level="75">
+            <div class="skill-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Node.js</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="75%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Server-side JavaScript development</p>
+            </div>
+            <button class="skill-btn" aria-label="View Node.js projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="c" data-level="80">
+            <div class="skill-icon">
+              <i class="fas fa-terminal"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">C Programming</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="80%"></div>
+                </div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">System programming and low-level development</p>
+            </div>
+            <button class="skill-btn" aria-label="View C projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="skill-card" aria-label="Django skill">
-        <span class="skill-note">Expert in Django for building secure, scalable web applications.</span>
+      
+      <div class="skill-category">
+        <h3 class="category-title">Frontend Development</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="javascript" data-level="75">
+            <div class="skill-icon">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">JavaScript</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="75%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Dynamic, interactive front-end development</p>
+            </div>
+            <button class="skill-btn" aria-label="View JavaScript projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="react" data-level="70">
+            <div class="skill-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">React</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="70%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Modular, reusable UI components</p>
+            </div>
+            <button class="skill-btn" aria-label="View React projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="html-css" data-level="85">
+            <div class="skill-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">HTML5 & CSS3</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="85%"></div>
+                </div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">Modern web standards and responsive design</p>
+            </div>
+            <button class="skill-btn" aria-label="View HTML/CSS projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="vue" data-level="65">
+            <div class="skill-icon">
+              <i class="fab fa-vuejs"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Vue.js</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="65%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Progressive JavaScript framework</p>
+            </div>
+            <button class="skill-btn" aria-label="View Vue.js projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="skill-card" aria-label="JavaScript skill">
-        <span class="skill-note">Skilled in JavaScript for dynamic, interactive front-end development.</span>
+      
+      <div class="skill-category">
+        <h3 class="category-title">Cloud & DevOps</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="aws" data-level="70">
+            <div class="skill-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">AWS</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="70%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Scalable cloud architectures</p>
+            </div>
+            <button class="skill-btn" aria-label="View AWS projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="docker" data-level="65">
+            <div class="skill-icon">
+              <i class="fab fa-docker"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Docker</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="65%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Containerization and deployment</p>
+            </div>
+            <button class="skill-btn" aria-label="View Docker projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="cicd" data-level="60">
+            <div class="skill-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">CI/CD</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="60%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Automated deployment pipelines</p>
+            </div>
+            <button class="skill-btn" aria-label="View CI/CD projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="kubernetes" data-level="55">
+            <div class="skill-icon">
+              <i class="fas fa-cubes"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Kubernetes</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="55%"></div>
+                </div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Container orchestration platform</p>
+            </div>
+            <button class="skill-btn" aria-label="View Kubernetes projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="skill-card" aria-label="MongoDB skill">
-        <span class="skill-note">Experienced with MongoDB for managing NoSQL databases and real-time data.</span>
+      
+      <div class="skill-category">
+        <h3 class="category-title">Databases</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="mongodb" data-level="85">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">MongoDB</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="85%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">NoSQL databases and real-time data</p>
+            </div>
+            <button class="skill-btn" aria-label="View MongoDB projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="mysql" data-level="80">
+            <div class="skill-icon">
+              <i class="fas fa-server"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">MySQL</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="80%"></div>
+                </div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">Relational database management</p>
+            </div>
+            <button class="skill-btn" aria-label="View MySQL projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="skill-card" aria-label="React skill">
-        <span class="skill-note">Proficient in React for creating modular, reusable UI components.</span>
+      
+      <div class="skill-category">
+        <h3 class="category-title">AI & Automation</h3>
+        <div class="skill-grid">
+          <div class="skill-card" data-skill="zapier" data-level="75">
+            <div class="skill-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Zapier</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="75%"></div>
+                </div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Workflow automation and integrations</p>
+            </div>
+            <button class="skill-btn" aria-label="View Zapier projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="airtable" data-level="80">
+            <div class="skill-icon">
+              <i class="fas fa-table"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Airtable</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="80%"></div>
+                </div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Database and project management platform</p>
+            </div>
+            <button class="skill-btn" aria-label="View Airtable projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="make" data-level="70">
+            <div class="skill-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">Make.com</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="70%"></div>
+                </div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Visual automation platform</p>
+            </div>
+            <button class="skill-btn" aria-label="View Make.com projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          
+          <div class="skill-card" data-skill="n8n" data-level="65">
+            <div class="skill-icon">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="skill-content">
+              <h4 class="skill-name">n8n</h4>
+              <div class="skill-level">
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="65%"></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Open-source workflow automation</p>
       </div>
-      <div class="skill-card" aria-label="CI/CD skill">
-        <span class="skill-note">Skilled in CI/CD pipelines using Jenkins for automated deployments.</span>
+            <button class="skill-btn" aria-label="View n8n projects">
+              <i class="fas fa-arrow-right"></i>
+            </button>
       </div>
-      <div class="skill-card" aria-label="AWS skill">
-        <span class="skill-note">Certified in AWS for designing scalable cloud architectures.</span>
       </div>
-      <!-- <div class="skill-card" aria-label="Docker skill">
-        <span class="skill-note">Proficient in MySQL for optimizing relational database performance.</span>
-      </div> -->
-      <div class="skill-card" aria-label="MySQL skill">
-        <span class="skill-note">Experienced with Docker for containerizing applications.</span>
       </div>
     </div>
   </section>
 
-  <!-- Certifications section: Validates expertise with industry-recognized credentials -->
-  <section class="certifications" id="certifications" role="region" aria-labelledby="certifications-heading">
+  <section class="certifications reveal" id="certifications" role="region" aria-labelledby="certifications-heading" style="display: none; opacity: 0;">
     <h2 id="certifications-heading">Certifications</h2>
     <div class="certification-grid">
       <div class="certification-card">
@@ -196,12 +555,10 @@
         <p>PLP Academy | In Progress</p>
       </div>
     </div>
-    <!-- Back link to return to education section -->
     <a href="#education" class="back-link" aria-label="Back to Education">Back to Education</a>
   </section>
 
-  <!-- Education section: Details academic background to provide context for skills -->
-  <section class="education" id="education" role="region" aria-labelledby="education-heading">
+  <section class="education reveal" id="education" role="region" aria-labelledby="education-heading">
     <h2 id="education-heading">Education & Training</h2>
     <div class="education-grid">
       <div class="education-card">
@@ -211,15 +568,69 @@
       </div>
       <div class="education-card">
         <h3>Software Engineering & Cloud Architecture Training</h3>
-        <div class="date-badge">ALX, 3MTT, IHS Academy | 2022 - 2025</div>
-        <p>Completed intensive programs in Software development, cloud infrastructure (AWS), and Generative AI, mastering Python, Django, and scalable system design.</p>
+        <div class="date-badge">ALX, 3MTT, IHS Academy, PLP Academy | 2022 - 2025</div>
+        <p>Completed intensive programs in Software development, cloud infrastructure (AWS), and Generative AI, mastering Python, Django, and scalable system design. Currently enrolled in Power Learn Project Academy (PLP) for advanced software engineering.</p>
       </div>
     </div>
-    <!-- Link to view certifications section -->
     <a href="#certifications" class="view-certifications" aria-label="View Certifications">View Certifications</a>
   </section>
 
-  <section class="insights-updates" id="insights-updates" role="region" aria-labelledby="insights-updates-heading">
+  <section class="testimonials reveal" id="testimonials" role="region" aria-labelledby="testimonials-heading">
+    <h2 id="testimonials-heading">Testimonials</h2>
+    <div class="testimonials-container">
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>"Joseph's technical expertise and problem-solving skills are exceptional. He delivered our CareCycle project ahead of schedule with outstanding quality."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <h4>Dr. Sarah Johnson</h4>
+            <span>Project Manager, Healthcare Solutions</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          <p>"Working with Joseph was a game-changer. His attention to detail and modern development practices significantly improved our application performance."</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-info">
+            <h4>Michael Chen</h4>
+            <span>CTO, TechStart Inc.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements reveal" id="achievements" role="region" aria-labelledby="achievements-heading">
+    <h2 id="achievements-heading">Achievements</h2>
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Top Performer</h3>
+        <p>Recognized as top 5% performer in ALX Software Engineering program</p>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-medal"></i>
+        </div>
+        <h3>AWS Certified</h3>
+        <p>Successfully obtained AWS Solutions Architect certification</p>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Project Excellence</h3>
+        <p>Delivered 3 major projects with 100% client satisfaction</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="insights-updates reveal" id="insights-updates" role="region" aria-labelledby="insights-updates-heading">
     <h2 id="insights-updates-heading">Insights & Updates</h2>
     <div class="insights-updates-container">
       <div class="insights-card">
@@ -239,47 +650,47 @@
       <div class="insights-card article-card" id="blog-ai-preview">
         <h3>The Future of Generative AI</h3>
         <div class="date-badge">June 2025</div>
-        <p>Explore my journey with Generative AI, from completing the AI for Creatives course to experimenting with AI-driven chatbots. See how AI is reshaping industries and what’s next.</p>
+        <p>Explore my journey with Generative AI, from completing the AI for Creatives course to experimenting with AI-driven Applications. See how AI is reshaping industries and what’s next.</p>
         <a href="#article-chatbot" class="read-more" aria-label="Read more about The Future of Generative AI">Read More</a>
       </div>
     </div>
   </section>
 
-  <!-- Articles section: Expands on insights with detailed blog posts -->
-  <section class="articles" id="articles" role="region" aria-labelledby="articles-heading">
+  <section class="articles reveal" id="articles" role="region" aria-labelledby="articles-heading">
     <h2 id="articles-heading">Articles</h2>
-    <article class="article-item" id="article-django">
-      <h3>Building Scalable Web Apps with Django</h3>
-      <div class="date-badge">Published: July 2025</div>
-      <p>
-        Django is a powerful Python framework for building scalable, secure web applications. In this article, we explore best practices for leveraging Django’s ORM, middleware, and PostgreSQL/MySQL integration to create robust applications. Key topics include:
-        <ul>
-          <li>Optimizing database queries with Django ORM for faster load times.</li>
-          <li>Implementing RESTful APIs with Django REST Framework.</li>
-          <li>Scaling applications with caching and load balancing.</li>
-        </ul>
-        By following these strategies, I reduced API response times by 20% in a recent project, ensuring a seamless user experience. Stay tuned for more insights on deploying Django apps with AWS!
-      </p>
-      <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
-    </article>
-    <article class="article-item" id="article-chatbot">
-      <h3>Exploring Generative AI for Chatbots</h3>
-      <div class="date-badge">Published: July 2025</div>
-      <p>
-        Generative AI is transforming how we build interactive chatbots. Using Python and NLP libraries like Hugging Face’s Transformers, I developed a chatbot that increased user engagement by 25%. This article covers:
-        <ul>
-          <li>Training models with pre-built datasets for conversational AI.</li>
-          <li>Integrating NLP pipelines into web applications.</li>
-          <li>Optimizing chatbot responses for real-time interaction.</li>
-        </ul>
-        Learn how to harness AI to create user-friendly, intelligent chatbot experiences that elevate your applications.
-      </p>
-      <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
-    </article>
+    <div class="articles-container">
+      <article class="article-item" id="article-django">
+        <h3>Building Scalable Web Apps with Django</h3>
+        <div class="date-badge">Published: July 2025</div>
+        <p>
+          Django is a powerful Python framework for building scalable, secure web applications. In this article, we explore best practices for leveraging Django’s ORM, middleware, and PostgreSQL/MySQL integration to create robust applications. Key topics include:
+          <ul>
+            <li>Optimizing database queries with Django ORM for faster load times.</li>
+            <li>Implementing RESTful APIs with Django REST Framework.</li>
+            <li>Scaling applications with caching and load balancing.</li>
+          </ul>
+          By following these strategies, I reduced API response times by 20% in a recent project, ensuring a seamless user experience. Stay tuned for more insights on deploying Django apps with AWS!
+        </p>
+        <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
+      </article>
+      <article class="article-item" id="article-chatbot">
+        <h3>Exploring Generative AI for Chatbots</h3>
+        <div class="date-badge">Published: July 2025</div>
+        <p>
+          Generative AI is transforming how we build interactive chatbots. Using Python and NLP libraries like Hugging Face’s Transformers, I developed a chatbot that increased user engagement by 25%. This article covers:
+          <ul>
+            <li>Training models with pre-built datasets for conversational AI.</li>
+            <li>Integrating NLP pipelines into web applications.</li>
+            <li>Optimizing chatbot responses for real-time interaction.</li>
+          </ul>
+          Learn how to harness AI to create user-friendly, intelligent chatbot experiences that elevate your applications.
+        </p>
+        <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
+      </article>
+    </div>
   </section>
 
-  <!-- Contact section: Provides a form for viewers to reach out easily -->
-  <section class="contact" id="contact" role="region" aria-labelledby="contact-heading">
+  <section class="contact reveal" id="contact" role="region" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Contact Me</h2>
     <form>
       <div class="form-group">
@@ -298,23 +709,20 @@
     </form>
   </section>
 
-  <!-- Call-to-action section: Encourages collaboration and resume download -->
-  <section class="cta" role="region" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Let's Build Something Amazing</h2>
-    <p>Whether you're a startup seeking a dynamic full stack engineer, a company looking to scale your cloud 
-      infrastructure, or a team ready to innovate with AI—I'm excited to bring your vision to life.
-      Let’s collaborate to create powerful, user-centered digital solutions that make a difference.</p>
-      <p class=""> Interested in working together? Let's connect.
-           You can also download my resume or follow me on social platforms to learn more about my skills, experience, and recent projects.</p>
-    <div class="cta-buttons">
-      <a href="#contact" class="button" aria-label="Contact Joseph">Contact Me</a>
-      <a href="resume/lastOneResume.pdf" class="button" download aria-label="Download Joseph's resume">Download Resume</a>
+  <section class="cta reveal" role="region" aria-labelledby="cta-heading">
+    <div class="cta-content">
+      <h2 id="cta-heading">Let's Build Something Amazing</h2>
+      <p>Whether you're a startup seeking a dynamic full stack engineer, a company looking to scale your cloud infrastructure, or a team ready to innovate with AI—I'm excited to bring your vision to life. Let’s collaborate to create powerful, user-centered digital solutions that make a difference.</p>
+      <p class="">Interested in working together? Let's connect. You can also download my resume or follow me on social platforms to learn more about my skills, experience, and recent projects.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="button" aria-label="Contact Joseph">Contact Me</a>
+        <a href="resume/lastOneResume.pdf" class="button" download aria-label="Download Joseph's resume">Download Resume</a>
+      </div>
     </div>
   </section>
 
-  <!-- Footer: Includes social links and copyright for branding and connectivity -->
   <footer role="contentinfo">
-    <div class="social-icons"> 
+    <div class="social-icons">
       <a href="https://linkedin.com/in/dubicventures" target="_blank" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/mrchidubem" target="_blank" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
       <a href="https://x.com/ChidubemOkafo17" target="_blank" aria-label="Twitter profile"><i class="fab fa-twitter"></i></a>
@@ -322,5 +730,9 @@
     </div>
     <p>&copy; 2025 Joseph Chidubem Okafor. All rights reserved.</p>
   </footer>
+
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="javascript/script.js" defer></script>
 </body>
 </html>
