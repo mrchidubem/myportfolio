@@ -1,38 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+  <!-- Character encoding and responsive viewport -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- SEO and meta information -->
   <meta name="description" content="Portfolio of Joseph Chidubem Okafor, Full Stack Software Engineer and Cloud Architect.">
   <meta name="keywords" content="Joseph Chidubem Okafor, Full Stack Developer, Cloud Architect, Portfolio">
   <meta name="author" content="Joseph Chidubem Okafor">
   <meta property="og:title" content="Joseph Chidubem Okafor | Portfolio">
   <meta property="og:description" content="Explore the portfolio of Joseph Chidubem Okafor, a Full Stack Software Engineer and Cloud Architect.">
   <meta property="og:image" content="images/og-image.jpg">
+  <!-- Page title and favicon -->
   <title>Joseph | Portfolio</title>
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Google Fonts for typography -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@500&family=Playfair+Display:wght@400&display=swap&font-display=swap" rel="stylesheet">
+  <!-- Font Awesome and custom stylesheets -->
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/everystyle.css">
 </head>
 <body>
+  <!-- Main navigation bar -->
   <nav aria-label="Main navigation">
+    <!-- Logo with circular design -->
     <a href="#home" class="circle-logo">
       <div class="circle">D</div>
       <span class="circle-text gradient-name">ubicventures</span>
     </a>
+    <!-- Mobile navigation toggle button -->
     <button class="nav-toggle-btn" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
+    <!-- Navigation links -->
     <ul class="nav-links">
       <li><a href="#about" aria-current="page">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#insights-updates">Insights</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <!-- Theme toggle and resume download controls -->
     <div class="theme-controls-wrapper">
       <div class="theme-controls">
         <input type="checkbox" id="theme-toggle" class="theme-toggle" hidden aria-label="Toggle theme">
@@ -42,6 +53,7 @@
     </div>
   </nav>
 
+  <!-- Hero section -->
   <section class="hero reveal" id="home" role="region" aria-labelledby="home-heading">
     <img src="images/dube.jpg" alt="Portrait of Joseph Chidubem Okafor, smiling professionally" class="avatar" loading="lazy" onerror="this.src='images/fallback-avatar.jpg'">
     <h2 id="home-heading">Joseph Chidubem Okafor</h2>
@@ -49,6 +61,7 @@
     <a href="#projects" class="button" aria-label="Explore Joseph's projects">Explore My Work</a>
   </section>
 
+  <!-- About section -->
   <section class="about reveal" id="about" role="region" aria-labelledby="about-heading">
     <h2 id="about-heading">About Me</h2>
     <div class="about-container">
@@ -61,6 +74,7 @@
     </div>
   </section>
 
+  <!-- Experience section -->
   <section class="experience reveal" id="experience" role="region" aria-labelledby="experience-heading">
     <h2 id="experience-heading">Experience</h2>
     <div class="experience-grid">
@@ -77,6 +91,7 @@
     </div>
   </section>
 
+  <!-- Projects section -->
   <section class="projects reveal" id="projects" role="region" aria-labelledby="projects-heading">
     <h2 id="projects-heading">Projects</h2>
     <div class="project-grid">
@@ -152,9 +167,11 @@
     </div>
   </section>
 
+  <!-- Skills section -->
   <section class="skills reveal" id="skills" role="region" aria-labelledby="skills-heading">
     <h2 id="skills-heading">Skills & Technologies</h2>
     <div class="skills-container">
+      <!-- Backend Development Skills -->
       <div class="skill-category">
         <h3 class="category-title">Backend Development</h3>
         <div class="skill-grid">
@@ -182,6 +199,30 @@
             </div>
             <a class="skill-btn" href="#projects?skill=django" aria-label="View Django projects"><i class="fas fa-arrow-right"></i></a>
           </div>
+          <div class="skill-card" data-skill="flask" data-level="80">
+            <div class="skill-icon"><i class="fas fa-flask"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Flask</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="80%"></div></div>
+                <span class="level-text">Expert</span>
+              </div>
+              <p class="skill-description">Lightweight, flexible web development</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=flask" aria-label="View Flask projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="skill-card" data-skill="rails" data-level="70">
+            <div class="skill-icon"><i class="fas fa-gem"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Ruby on Rails</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Rapid application development with Ruby</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=rails" aria-label="View Ruby on Rails projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
           <div class="skill-card" data-skill="nodejs" data-level="75">
             <div class="skill-icon"><i class="fab fa-node-js"></i></div>
             <div class="skill-content">
@@ -208,6 +249,7 @@
           </div>
         </div>
       </div>
+      <!-- Frontend Development Skills -->
       <div class="skill-category">
         <h3 class="category-title">Frontend Development</h3>
         <div class="skill-grid">
@@ -235,6 +277,30 @@
             </div>
             <a class="skill-btn" href="#projects?skill=react" aria-label="View React projects"><i class="fas fa-arrow-right"></i></a>
           </div>
+          <div class="skill-card" data-skill="angular" data-level="65">
+            <div class="skill-icon"><i class="fab fa-angular"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Angular</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Robust framework for dynamic web apps</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=angular" aria-label="View Angular projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="skill-card" data-skill="svelte" data-level="60">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Svelte</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="60%"></div></div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Compile-time reactive framework</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=svelte" aria-label="View Svelte projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
           <div class="skill-card" data-skill="html-css" data-level="85">
             <div class="skill-icon"><i class="fab fa-html5"></i></div>
             <div class="skill-content">
@@ -261,6 +327,7 @@
           </div>
         </div>
       </div>
+      <!-- Cloud & DevOps Skills -->
       <div class="skill-category">
         <h3 class="category-title">Cloud & DevOps</h3>
         <div class="skill-grid">
@@ -275,6 +342,30 @@
               <p class="skill-description">Scalable cloud architectures</p>
             </div>
             <a class="skill-btn" href="#projects?skill=aws" aria-label="View AWS projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="skill-card" data-skill="azure" data-level="65">
+            <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Azure</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">Cloud computing and services</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=azure" aria-label="View Azure projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="skill-card" data-skill="gcloud" data-level="60">
+            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Google Cloud</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="60%"></div></div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Cloud infrastructure and AI services</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=gcloud" aria-label="View Google Cloud projects"><i class="fas fa-arrow-right"></i></a>
           </div>
           <div class="skill-card" data-skill="docker" data-level="65">
             <div class="skill-icon"><i class="fab fa-docker"></i></div>
@@ -314,6 +405,7 @@
           </div>
         </div>
       </div>
+      <!-- Databases Skills -->
       <div class="skill-category">
         <h3 class="category-title">Databases</h3>
         <div class="skill-grid">
@@ -343,6 +435,7 @@
           </div>
         </div>
       </div>
+      <!-- AI & Automation Skills -->
       <div class="skill-category">
         <h3 class="category-title">AI & Automation</h3>
         <div class="skill-grid">
@@ -394,11 +487,36 @@
             </div>
             <a class="skill-btn" href="#projects?skill=n8n" aria-label="View n8n projects"><i class="fas fa-arrow-right"></i></a>
           </div>
+          <div class="skill-card" data-skill="huggingface" data-level="70">
+            <div class="skill-icon"><i class="fas fa-robot"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">Hugging Face</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="70%"></div></div>
+                <span class="level-text">Intermediate</span>
+              </div>
+              <p class="skill-description">NLP and machine learning models</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=huggingface" aria-label="View Hugging Face projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="skill-card" data-skill="langchain" data-level="65">
+            <div class="skill-icon"><i class="fas fa-link"></i></div>
+            <div class="skill-content">
+              <h4 class="skill-name">LangChain</h4>
+              <div class="skill-level">
+                <div class="progress-bar"><div class="progress-fill" data-width="65%"></div></div>
+                <span class="level-text">Basic</span>
+              </div>
+              <p class="skill-description">Building applications with LLMs</p>
+            </div>
+            <a class="skill-btn" href="#projects?skill=langchain" aria-label="View LangChain projects"><i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Certifications section -->
   <section class="certifications reveal" id="certifications" role="region" aria-labelledby="certifications-heading" aria-hidden="true">
     <h2 id="certifications-heading">Certifications</h2>
     <div class="certification-grid">
@@ -430,72 +548,28 @@
     <a href="#education" class="back-link" aria-label="Back to Education">Back to Education</a>
   </section>
 
+  <!-- Education section (Restored to minimal list-based structure) -->
   <section class="education reveal" id="education" role="region" aria-labelledby="education-heading" aria-hidden="false">
     <h2 id="education-heading">Education & Training</h2>
-    <div class="education-grid">
-      <div class="education-card">
-        <h3>B.Eng. Electrical and Electronics Engineering</h3>
-        <div class="date-badge">University of Nigeria | 2017 - 2022</div>
-        <p>Focused on circuit design, control systems, and software integration, laying a strong foundation for technical problem-solving.</p>
-      </div>
-      <div class="education-card">
-        <h3>Software Engineering & Cloud Architecture Training</h3>
-        <div class="date-badge">ALX, 3MTT, IHS Academy, PLP Academy | 2022 - 2025</div>
-        <p>Completed intensive programs in Software development, cloud infrastructure (AWS), and Generative AI, mastering Python, Django, and scalable system design. Currently enrolled in Power Learn Project Academy (PLP) for advanced software engineering.</p>
-      </div>
-    </div>
-    <a href="#certifications" class="view-certifications" aria-label="View Certifications">View Certifications</a>
+    <ul class="education-list">
+      <li>B.Eng. Electrical and Electronics Engineering, University of Nigeria, Nsukka (2017 - 2022)</li>
+      <li>Software Engineering & Cloud Architecture Training, ALX, 3MTT, IHS Academy, PLP Academy (2022 - 2025)</li>
+    </ul>
+    <button class="view-certifications" aria-label="View Certifications">View Certifications</button>
   </section>
 
-  <!-- <section class="testimonials reveal" id="testimonials" role="region" aria-labelledby="testimonials-heading">
-    <h2 id="testimonials-heading">Testimonials</h2>
-    <div class="testimonials-container">
-      <div class="testimonial-card">
-        <div class="testimonial-content">
-          <p>"Joseph's technical expertise and problem-solving skills are exceptional. He delivered our CareCycle project ahead of schedule with outstanding quality."</p>
-        </div>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <h4>Dr. Sarah Johnson</h4>
-            <span>Project Manager, Healthcare Solutions</span>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-content">
-          <p>"Working with Joseph was a game-changer. His attention to detail and modern development practices significantly improved our application performance."</p>
-        </div>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <h4>Michael Chen</h4>
-            <span>CTO, TechStart Inc.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
+  <!-- Achievements section (Restored to minimal list-based structure) -->
   <section class="achievements reveal" id="achievements" role="region" aria-labelledby="achievements-heading">
     <h2 id="achievements-heading">Achievements</h2>
-    <div class="achievements-grid">
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
-        <h3>Top Performer</h3>
-        <p>Recognized as top 5% performer in ALX Software Engineering program</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fas fa-medal"></i></div>
-        <h3>AWS Certified</h3>
-        <p>Successfully obtained AWS Solutions Architect certification</p>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-icon"><i class="fas fa-star"></i></div>
-        <h3>Project Excellence</h3>
-        <p>Delivered 3 major projects with 100% client satisfaction</p>
-      </div>
-    </div>
+    <ul class="achievements-list">
+      <li>Top Performer in ALX Software Engineering program (Top 5%)</li>
+      <li>AWS Certified Solutions Architect</li>
+      <li>Delivered 3 major projects with 100% client satisfaction</li>
+      <li>Mentored over 50 aspiring developers through ALX Africa</li>
+    </ul>
   </section>
 
+  <!-- Insights & Updates section -->
   <section class="insights-updates reveal" id="insights-updates" role="region" aria-labelledby="insights-updates-heading" aria-hidden="false">
     <h2 id="insights-updates-heading">Insights & Updates</h2>
     <div class="insights-updates-container">
@@ -510,18 +584,19 @@
       <div class="insights-card article-card" id="blog-django-preview">
         <h3>Building Scalable Django Applications</h3>
         <div class="date-badge">July 2025</div>
-        <p>Discover how I leveraged Django and MySQL to build a high-performance e-commerce platform, reducing load times by 30%. Learn tips for optimizing database queries and deploying on AWS.</p>
-        <a href="#article-django" class="read-more" aria-label="Read more about Building Scalable Django Applications">Read More</a>
+        <p class="preview-text">Discover how I leveraged Django and MySQL to build a high-performance e-commerce platform, reducing load times by 30%. Learn tips for optimizing database queries and deploying on AWS.</p>
+        <button class="read-more" data-target="article-django" aria-label="Toggle Building Scalable Django Applications article">Read More</button>
       </div>
       <div class="insights-card article-card" id="blog-ai-preview">
         <h3>The Future of Generative AI</h3>
         <div class="date-badge">June 2025</div>
-        <p>Explore my journey with Generative AI, from completing the AI for Creatives course to experimenting with AI-driven Applications. See how AI is reshaping industries and what’s next.</p>
-        <a href="#article-chatbot" class="read-more" aria-label="Read more about The Future of Generative AI">Read More</a>
+        <p class="preview-text">Explore my journey with Generative AI, from completing the AI for Creatives course to experimenting with AI-driven Applications. See how AI is reshaping industries and what’s next.</p>
+        <button class="read-more" data-target="article-chatbot" aria-label="Toggle The Future of Generative AI article">Read More</button>
       </div>
     </div>
   </section>
 
+  <!-- Articles section -->
   <section class="articles reveal" id="articles" role="region" aria-labelledby="articles-heading" aria-hidden="true">
     <h2 id="articles-heading">Articles</h2>
     <div class="articles-container">
@@ -537,7 +612,7 @@
           </ul>
           By following these strategies, I reduced API response times by 20% in a recent project, ensuring a seamless user experience. Stay tuned for more insights on deploying Django apps with AWS!
         </p>
-        <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
+        <button class="back-link" data-target="insights-updates" aria-label="Back to Insights & Updates">Back to Insights</button>
       </article>
       <article class="article-item" id="article-chatbot" aria-hidden="true">
         <h3>Exploring Generative AI for Chatbots</h3>
@@ -551,11 +626,12 @@
           </ul>
           Learn how to harness AI to create user-friendly, intelligent chatbot experiences that elevate your applications.
         </p>
-        <a href="#insights-updates" class="back-link" aria-label="Back to Insights & Updates">Back to Insights</a>
+        <button class="back-link" data-target="insights-updates" aria-label="Back to Insights & Updates">Back to Insights</button>
       </article>
     </div>
   </section>
 
+  <!-- Contact section -->
   <section class="contact reveal" id="contact" role="region" aria-labelledby="contact-heading">
     <h2 id="contact-heading">Contact Me</h2>
     <form>
@@ -575,6 +651,7 @@
     </form>
   </section>
 
+  <!-- Call-to-Action section -->
   <section class="cta reveal" role="region" aria-labelledby="cta-heading">
     <div class="cta-content">
       <h2 id="cta-heading">Let's Build Something Amazing</h2>
@@ -587,6 +664,7 @@
     </div>
   </section>
 
+  <!-- Footer section -->
   <footer role="contentinfo">
     <div class="social-icons">
       <a href="https://linkedin.com/in/dubicventures" target="_blank" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
@@ -598,8 +676,10 @@
     <p>&copy; 2025 Joseph Chidubem Okafor. All rights reserved.</p>
   </footer>
 
+  <!-- Toast notification container -->
   <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
+  <!-- JavaScript file -->
   <script src="javascript/script.js" defer></script>
 </body>
 </html>
