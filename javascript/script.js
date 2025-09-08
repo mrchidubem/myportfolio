@@ -1,9 +1,14 @@
 // Theme Toggle Functionality
 const themeToggle = document.querySelector('#theme-toggle');
+
+// Set light theme as default
+document.documentElement.setAttribute('data-theme', 'light');
+themeToggle.checked = false; // Ensure toggle is unchecked by default
+
 themeToggle.addEventListener('change', () => {
   document.documentElement.setAttribute(
     'data-theme',
-    themeToggle.checked ? 'light' : 'dark'
+    themeToggle.checked ? 'dark' : 'light'
   );
 });
 
