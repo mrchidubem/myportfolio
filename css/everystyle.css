@@ -1,19 +1,20 @@
 /* Root variables for theming (dark theme) */
 :root {
-  --primary: #1C2526; /* Navy blue for background */
-  --secondary: #2E3A3C; /* Slightly lighter navy for secondary elements */
-  --section-bg: #3B4A4E; /* Muted teal for section backgrounds */
-  --text: #F5F5F5; /* Off-white for primary text (high contrast) */
-  --text-secondary: #D3D3D3; /* Light gray for secondary text */
-  --accent: #4AC8B0; /* Soft teal for accents */
-  --accent-secondary: #3A9E8A; /* Deeper teal for hover states */
-  --glass-bg: rgba(245, 245, 245, 0.1); /* Subtle off-white glass effect */
-  --glass-border: rgba(245, 245, 245, 0.2); /* Slightly stronger off-white border */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow for hover */
-  --shadow-glow: 0 0 10px rgba(74, 200, 176, 0.5); /* Soft teal glow */
-  --gradient-primary: linear-gradient(90deg, #4AC8B0, #3B4A4E); /* Soft teal to muted teal gradient */
-  --gradient-secondary: linear-gradient(90deg, #3A9E8A, #2E3A3C); /* Deeper teal to navy gradient */
+  --primary: #1C2526;
+  --secondary: #2E3A3C;
+  --section-bg: #3B4A4E;
+  --text: #F5F5F5;
+  --text-secondary: #D3D3D3;
+  --accent: #4AC8B0;
+  --accent-secondary: #3A9E8A;
+  --accent-sweet: #3DD6B5;
+  --glass-bg: rgba(245, 245, 245, 0.1);
+  --glass-border: rgba(245, 245, 245, 0.2);
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 10px rgba(61, 214, 181, 0.5);
+  --gradient-primary: linear-gradient(90deg, #3DD6B5, #3B4A4E);
+  --gradient-secondary: linear-gradient(90deg, #3A9E8A, #2E3A3C);
   --radius-sm: 5px;
   --radius-md: 10px;
   --space-xs: 5px;
@@ -27,18 +28,24 @@
 
 /* Light theme variables */
 [data-theme="light"] {
-  --primary: #FFF9E6; /* Soft yellow for background */
-  --secondary: #F0E8D0; /* Lighter soft yellow for secondary elements */
-  --section-bg: #E8E0C8; /* Pale beige for section backgrounds */
-  --text: #1C2526; /* Navy blue for primary text (high contrast) */
-  --text-secondary: #4A5A5C; /* Dark teal for secondary text */
-  --accent: #4AC8B0; /* Soft teal for accents */
-  --accent-secondary: #3A9E8A; /* Deeper teal for hover states */
-  --glass-bg: rgba(28, 37, 38, 0.1); /* Subtle navy glass effect */
-  --glass-border: rgba(28, 37, 38, 0.2); /* Slightly stronger navy border */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2); /* Softer shadow for light theme */
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3); /* Medium shadow for hover */
-  --shadow-glow: 0 0 10px rgba(74, 200, 176, 0.3); /* Soft teal glow */
+  --primary: #FFF9E6;
+  --secondary: #F0E8D0;
+  --section-bg: #E8E0C8;
+  --text: #1C2526;
+  --text-secondary: #4A5A5C;
+  --accent: #4AC8B0;
+  --accent-secondary: #3A9E8A;
+  --accent-sweet: #3DD6B5;
+  --glass-bg: rgba(28, 37, 38, 0.1);
+  --glass-border: rgba(28, 37, 38, 0.2);
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 10px rgba(61, 214, 181, 0.3);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Reset and base styles */
@@ -60,6 +67,11 @@ body {
 section {
   padding: 80px 20px;
   background: var(--section-bg);
+}
+
+/* Offset for sticky nav in articles section */
+.articles {
+  scroll-margin-top: 80px; /* Accounts for sticky nav (~60px) + extra padding */
 }
 
 /* Container for content */
@@ -223,24 +235,26 @@ nav {
 /* Button base styling */
 .button {
   display: inline-block;
-  padding: var(--space-sm) var(--space-lg);
-  background: var(--gradient-primary);
+  padding: 12px 28px;
+  background: var(--accent-sweet);
   color: var(--primary);
   text-decoration: none;
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   border: 2px solid var(--accent-secondary);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Button hover effect */
 .button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
   background: var(--gradient-secondary);
 }
@@ -253,15 +267,15 @@ nav {
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(74, 200, 176, 0.3);
+  background: rgba(61, 214, 181, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width var(--transition-slow), height var(--transition-slow);
 }
 
 .button:hover::before {
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
 }
 
 /* About section */
@@ -715,25 +729,26 @@ nav {
 .education-toggle {
   display: inline-block;
   margin-top: var(--space-sm);
-  padding: 8px 16px;
-  background: var(--gradient-primary);
+  padding: 10px 20px;
+  background: var(--accent-sweet);
   color: var(--primary);
   border: 2px solid var(--accent-secondary);
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Education toggle button hover */
 .education-toggle:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
   background: var(--gradient-secondary);
 }
@@ -746,15 +761,15 @@ nav {
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(74, 200, 176, 0.3);
+  background: rgba(61, 214, 181, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width var(--transition-slow), height var(--transition-slow);
 }
 
 .education-toggle:hover::before {
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
 }
 
 /* Education extra details */
@@ -781,25 +796,26 @@ nav {
 .view-certifications {
   display: inline-block;
   margin-top: var(--space-lg);
-  padding: 10px 24px;
-  background: var(--gradient-primary);
+  padding: 12px 28px;
+  background: var(--accent-sweet);
   color: var(--primary);
   border: 2px solid var(--accent-secondary);
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* View certifications button hover */
 .view-certifications:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
   background: var(--gradient-secondary);
 }
@@ -812,29 +828,29 @@ nav {
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(74, 200, 176, 0.3);
+  background: rgba(61, 214, 181, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width var(--transition-slow), height var(--transition-slow);
 }
 
 .view-certifications:hover::before {
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
 }
 
 /* Read more button */
 .read-more {
   display: inline-block;
   margin-top: var(--space-sm);
-  padding: 6px 12px;
+  padding: 8px 16px;
   background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--accent-sweet);
+  border: 1px solid var(--accent-sweet);
   border-radius: var(--radius-sm);
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
   transition: all var(--transition-normal);
   text-decoration: none;
@@ -842,13 +858,13 @@ nav {
 
 /* Read more button hover */
 .read-more:hover {
-  background: var(--accent);
+  background: var(--accent-sweet);
   color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow);
 }
 
-/* Achievements section with circular cards and bigger icons */
+/* Achievements section with professional rectangular cards */
 .achievements {
   text-align: center;
   padding: var(--space-lg) 20px;
@@ -857,74 +873,72 @@ nav {
 /* Achievements grid for card layout */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-md);
   max-width: 1000px;
   margin: 0 auto;
 }
 
-/* Achievement card */
+/* Achievement card (rectangular for professionalism) */
 .achievement-card {
-  background: var(--gradient-primary);
+  background: var(--glass-bg);
   border: 2px solid var(--glass-border);
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  border-left: 5px solid var(--accent);
+  border-radius: var(--radius-md);
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: var(--space-sm);
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
+  min-height: 200px;
 }
 
 /* Achievement card hover */
 .achievement-card:hover {
-  transform: scale(1.1) rotate(3deg);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-glow);
-  border-color: var(--accent);
+  border-color: var(--accent-sweet);
 }
 
-/* Pulsating glow effect for beauty */
+/* Achievement card shimmer effect */
 .achievement-card::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(74, 200, 176, 0.3), transparent);
-  opacity: 0;
-  transition: opacity var(--transition-slow);
+  background: linear-gradient(90deg, transparent, rgba(61, 214, 181, 0.2), transparent);
+  transition: left var(--transition-slow);
 }
 
 .achievement-card:hover::before {
-  opacity: 1;
+  left: 100%;
 }
 
 /* Achievement icon */
 .achievement-icon {
-  font-size: 3rem;
-  color: var(--primary);
+  font-size: 2.5rem;
+  color: var(--accent-sweet);
   transition: all var(--transition-normal);
 }
 
 /* Achievement icon hover */
 .achievement-card:hover .achievement-icon {
   color: var(--accent-secondary);
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 8px var(--accent));
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--accent-sweet));
 }
 
 /* Achievement text */
 .achievement-text {
-  font-size: 0.95rem;
-  color: var(--primary);
-  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
   line-height: 1.5;
   text-align: center;
 }
@@ -1099,25 +1113,26 @@ form {
 
 /* Form submit button */
 form button {
-  padding: 10px 24px;
-  background: var(--gradient-primary);
+  padding: 12px 28px;
+  background: var(--accent-sweet);
   color: var(--primary);
   border: 2px solid var(--accent-secondary);
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   cursor: pointer;
   transition: all var(--transition-normal);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Form submit button hover */
 form button:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
   background: var(--gradient-secondary);
 }
@@ -1130,15 +1145,15 @@ form button::before {
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(74, 200, 176, 0.3);
+  background: rgba(61, 214, 181, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width var(--transition-slow), height var(--transition-slow);
 }
 
 form button:hover::before {
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
 }
 
 /* CTA section */
@@ -1175,35 +1190,37 @@ form button:hover::before {
 
 /* CTA button */
 .cta-buttons .button {
-  padding: 10px 24px;
-  font-size: 1rem;
-  font-weight: 700;
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Back to top link */
 .back-to-top {
   display: inline-block;
-  padding: 8px 16px;
-  background: var(--gradient-primary);
+  padding: 14px 32px;
+  background: var(--accent-sweet);
   color: var(--primary);
   text-decoration: none;
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
   border: 2px solid var(--accent-secondary);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin-bottom: 10px;
 }
 
 /* Back to top hover */
 .back-to-top:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-glow);
   background: var(--gradient-secondary);
 }
@@ -1216,15 +1233,15 @@ form button:hover::before {
   left: 50%;
   width: 0;
   height: 0;
-  background: rgba(74, 200, 176, 0.3);
+  background: rgba(61, 214, 181, 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width var(--transition-slow), height var(--transition-slow);
 }
 
 .back-to-top:hover::before {
-  width: 200%;
-  height: 200%;
+  width: 250%;
+  height: 250%;
 }
 
 /* Footer styling */
@@ -1422,132 +1439,132 @@ footer p {
 
   /* Mobile adjustments for buttons */
   .button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
 
   .view-certifications {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .education-toggle {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
 
-  .education-toggle {
+  .read-more {
     padding: 6px 12px;
     font-size: 0.85rem;
   }
 
-  .read-more {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-  }
-
   form button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
 
   .cta-buttons .button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
   }
 
   .back-to-top {
-    padding: 6px 12px;
-    font-size: 0.9rem;
+    padding: 12px 24px;
+    font-size: 1rem;
   }
 
   /* Mobile adjustments for education */
   .education {
-    padding: var(--space-md) 10px; /* Reduced section padding */
+    padding: var(--space-md) 10px;
   }
 
   .education-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
-    padding: 0 10px; /* Added padding for better spacing */
+    padding: 0 10px;
   }
 
   .education-card {
-    padding: var(--space-sm); /* Smaller padding for mobile */
-    min-height: auto; /* Allow natural height */
-    gap: var(--space-sm); /* Tighter spacing between elements */
-    border-width: 1px; /* Thinner border for less bulk */
-    border-left-width: 4px; /* Maintain teal accent */
+    padding: var(--space-sm);
+    min-height: auto;
+    gap: var(--space-sm);
+    border-width: 1px;
+    border-left-width: 4px;
   }
 
   .education-logo {
-    width: 40px; /* Smaller logo */
+    width: 40px;
     height: 40px;
     margin-bottom: var(--space-xs);
   }
 
   .education-icon {
-    font-size: 2rem; /* Smaller icon */
+    font-size: 2rem;
   }
 
   .education-title {
-    font-size: 1.2rem; /* Reduced font size */
+    font-size: 1.2rem;
     line-height: 1.4;
   }
 
   .education-details {
-    font-size: 0.9rem; /* Smaller font */
+    font-size: 0.9rem;
     margin-bottom: var(--space-xs);
   }
 
   .education-highlight {
-    font-size: 1rem; /* Smaller badge */
+    font-size: 1rem;
     padding: 3px 8px;
   }
 
   .education-badge {
-    font-size: 0.85rem; /* Smaller badge */
+    font-size: 0.85rem;
     padding: 3px 8px;
   }
 
   .education-toggle {
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 
   .education-details-extra {
     font-size: 0.9rem;
     padding: var(--space-sm);
-    border-width: 1px; /* Thinner border */
+    border-width: 1px;
   }
 
   .view-certifications {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 20px;
+    font-size: 0.95rem;
     margin-top: var(--space-sm);
   }
 
   /* Mobile adjustments for achievements */
   .achievements {
-    padding: var(--space-md) 10px; /* Reduced section padding */
+    padding: var(--space-md) 10px;
   }
 
   .achievements-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
-    padding: 0 10px; /* Added padding for better spacing */
-    justify-items: center; /* Center cards */
+    padding: 0 10px;
+    justify-items: center;
   }
 
   .achievement-card {
-    width: 150px; /* Smaller circular cards */
-    height: 150px;
-    padding: var(--space-sm); /* Reduced padding */
-    border-width: 1px; /* Thinner border */
+    min-height: 150px;
+    padding: var(--space-sm);
+    border-width: 1px;
+    border-left-width: 4px;
   }
 
   .achievement-icon {
-    font-size: 2rem; /* Smaller icon */
+    font-size: 2rem;
   }
 
   .achievement-text {
-    font-size: 0.85rem; /* Smaller text */
-    line-height: 1.3;
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 }
 
