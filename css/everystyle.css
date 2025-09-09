@@ -1,19 +1,19 @@
-/* Root variables for theming (light theme as default) */
+/* Root variables for theming (dark theme) */
 :root {
-  --primary: #ffffff;
-  --secondary: #f5f6f5;
-  --section-bg: #f0f0f5;
-  --text: #1b1b32;
-  --text-secondary: #4a4a5f;
-  --accent: #6a5acd; /* Updated to SlateBlue */
-  --accent-secondary: #483d8b; /* Updated to DarkSlateBlue */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
-  --shadow-glow: 0 0 10px rgba(106, 90, 205, 0.3); /* Updated to purple */
-  --gradient-primary: linear-gradient(90deg, #6a5acd, #483d8b); /* Purple gradient for Hero */
-  --gradient-secondary: linear-gradient(90deg, #6a5acd, #2f2e41); /* Darker purple for hover */
+  --primary: #1C2526; /* Navy blue for background */
+  --secondary: #2E3A3C; /* Slightly lighter navy for secondary elements */
+  --section-bg: #3B4A4E; /* Muted teal for section backgrounds */
+  --text: #F5F5F5; /* Off-white for primary text (high contrast) */
+  --text-secondary: #D3D3D3; /* Light gray for secondary text */
+  --accent: #C75B5B; /* Muted red for accents */
+  --accent-secondary: #A94444; /* Darker muted red for hover states */
+  --glass-bg: rgba(245, 245, 245, 0.1); /* Subtle off-white glass effect */
+  --glass-border: rgba(245, 245, 245, 0.2); /* Slightly stronger off-white border */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.4); /* Stronger shadow for hover */
+  --shadow-glow: 0 0 10px rgba(199, 91, 91, 0.5); /* Muted red glow */
+  --gradient-primary: linear-gradient(90deg, #C75B5B, #3B4A4E); /* Muted red to teal gradient */
+  --gradient-secondary: linear-gradient(90deg, #A94444, #2E3A3C); /* Darker red to navy gradient */
   --radius-sm: 5px;
   --radius-md: 10px;
   --space-xs: 5px;
@@ -25,23 +25,23 @@
   --transition-slow: 0.5s ease;
 }
 
-/* Dark theme variables */
-[data-theme="dark"] {
-  --primary: #0a0a23;
-  --secondary: #1b1b32;
-  --section-bg: #141438;
-  --text: #ffffff;
-  --text-secondary: #d0d0d5;
-  --accent: #6a5acd; /* Keep purple for consistency */
-  --accent-secondary: #483d8b;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 10px rgba(106, 90, 205, 0.5); /* Updated to purple */
+/* Light theme variables */
+[data-theme="light"] {
+  --primary: #FFF9E6; /* Soft yellow for background */
+  --secondary: #F0E8D0; /* Lighter soft yellow for secondary elements */
+  --section-bg: #E8E0C8; /* Pale beige for section backgrounds */
+  --text: #1C2526; /* Navy blue for primary text (high contrast) */
+  --text-secondary: #4A5A5C; /* Dark teal for secondary text */
+  --accent: #C75B5B; /* Muted red for accents */
+  --accent-secondary: #A94444; /* Darker muted red for hover states */
+  --glass-bg: rgba(28, 37, 38, 0.1); /* Subtle navy glass effect */
+  --glass-border: rgba(28, 37, 38, 0.2); /* Slightly stronger navy border */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2); /* Softer shadow for light theme */
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3); /* Medium shadow for hover */
+  --shadow-glow: 0 0 10px rgba(199, 91, 91, 0.3); /* Muted red glow */
 }
 
-/* Global resets */
+/* All other styles remain unchanged */
 * {
   margin: 0;
   padding: 0;
@@ -102,7 +102,7 @@ nav {
 .circle {
   width: 40px;
   height: 40px;
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@ nav {
 }
 
 .gradient-name {
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -151,9 +151,8 @@ nav {
   background: none;
   border: none;
   color: var(--text);
-  font-size: 1.8rem; /* Larger for mobile */
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: all var(--transition-fast);
 }
 
 /* Theme controls wrapper */
@@ -191,7 +190,7 @@ nav {
 .hero {
   text-align: center;
   padding: 150px 20px;
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   position: relative;
   overflow: hidden;
@@ -236,7 +235,7 @@ nav {
 
 /* Button hover */
 .button:hover {
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -446,7 +445,7 @@ nav {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(245, 245, 245, 0.1), transparent);
   transition: left var(--transition-slow);
 }
 
@@ -484,7 +483,7 @@ nav {
 .progress-bar {
   width: 100%;
   height: 6px;
-  background: var(--border);
+  background: var(--glass-border);
   border-radius: 3px;
   overflow: hidden;
   position: relative;
@@ -493,7 +492,7 @@ nav {
 /* Progress fill styling */
 .progress-fill {
   height: 100%;
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   border-radius: 3px;
   transition: width var(--transition-slow);
 }
@@ -573,7 +572,7 @@ nav {
   display: inline-block;
   margin-top: var(--space-md);
   padding: var(--space-sm) var(--space-lg);
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   border: none;
   border-radius: var(--radius-md);
@@ -658,7 +657,7 @@ nav {
   display: inline-block;
   margin-top: var(--space-sm);
   padding: var(--space-xs) var(--space-md);
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   border: none;
   border-radius: var(--radius-md);
@@ -807,7 +806,7 @@ form {
 /* Form submit button */
 form button {
   padding: var(--space-sm) var(--space-lg);
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   border: none;
   border-radius: var(--radius-md);
@@ -828,7 +827,7 @@ form button:hover {
 /* CTA section */
 .cta {
   text-align: center;
-  background: var(--section-bg); /* Uniform with other sections */
+  background: var(--gradient-primary);
   padding: 40px 20px;
 }
 
@@ -840,13 +839,13 @@ form button:hover {
 
 /* CTA heading */
 .cta-content h2 {
-  color: var(--text); /* Matches section text color */
+  color: var(--primary);
 }
 
 /* CTA paragraph */
 .cta-content p {
   font-size: 1rem;
-  color: var(--text);
+  color: var(--primary);
   margin-bottom: 20px;
 }
 
@@ -860,8 +859,8 @@ form button:hover {
 /* CTA button */
 .cta-buttons .button {
   padding: var(--space-sm) var(--space-lg);
-  background: var(--glass-bg);
-  color: var(--text);
+  background: var(--section-bg);
+  color: var(--accent);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   font-family: 'Inter', sans-serif;
@@ -874,7 +873,7 @@ form button:hover {
 
 /* CTA button hover */
 .cta-buttons .button:hover {
-  background: var(--gradient-secondary); /* Purple gradient for hover */
+  background: var(--gradient-secondary);
   color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
@@ -934,7 +933,7 @@ footer p {
 /* Date badge styling */
 .date-badge {
   display: inline-block;
-  background: var(--gradient-primary); /* Purple gradient */
+  background: var(--gradient-primary);
   color: var(--primary);
   padding: 5px 10px;
   border-radius: var(--radius-sm);
@@ -1014,7 +1013,6 @@ footer p {
 @media (max-width: 768px) {
   nav {
     flex-wrap: wrap;
-    padding: var(--space-sm) var(--space-md);
   }
 
   .nav-links {
@@ -1023,64 +1021,31 @@ footer p {
     flex-direction: column;
     align-items: center;
     background: var(--primary);
-    padding: var(--space-sm);
+    padding: var(--space-md);
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     border-top: 1px solid var(--glass-border);
-    transition: transform var(--transition-fast), opacity var(--transition-fast);
-    transform: translateY(-10px);
-    opacity: 0;
+    transition: all var(--transition-normal);
   }
 
   .nav-links.active {
     display: flex;
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .nav-links li {
-    width: 100%;
-    text-align: center;
-    padding: var(--space-xs) 0;
-  }
-
-  .nav-links li a {
-    font-size: 1rem;
-    padding: var(--space-sm);
-    display: block;
-    transition: background var(--transition-fast);
-  }
-
-  .nav-links li a:hover {
-    background: var(--glass-bg);
-    border-radius: var(--radius-sm);
   }
 
   .nav-toggle-btn {
     display: block;
-    font-size: 1.8rem;
-    padding: var(--space-xs);
-    border-radius: var(--radius-sm);
-    transition: transform var(--transition-fast);
-  }
-
-  .nav-toggle-btn:hover {
-    transform: scale(1.1);
   }
 
   .theme-controls-wrapper {
     width: 100%;
     justify-content: center;
-    margin-top: var(--space-sm);
   }
 
   .theme-controls {
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
   }
 
   .hero {
@@ -1106,11 +1071,6 @@ footer p {
   .cta-buttons {
     flex-direction: column;
     align-items: center;
-  }
-
-  .education-list,
-  .achievements-list {
-    padding: var(--space-sm);
   }
 }
 
@@ -1175,4 +1135,11 @@ section[aria-hidden="false"] {
   left: 0;
   color: var(--accent);
   font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .education-list,
+  .achievements-list {
+    padding: var(--space-sm);
+  }
 }
