@@ -548,26 +548,58 @@
     <a href="#education" class="back-link" aria-label="Back to Education">Back to Education</a>
   </section>
 
-  <!-- Education section (Restored to minimal list-based structure) -->
-  <section class="education reveal" id="education" role="region" aria-labelledby="education-heading" aria-hidden="false">
-    <h2 id="education-heading">Education & Training</h2>
-    <ul class="education-list">
-      <li>B.Eng. Electrical and Electronics Engineering, University of Nigeria, Nsukka (2017 - 2022)</li>
-      <li>Software Engineering & Cloud Architecture Training, ALX, 3MTT, IHS Academy, PLP Academy (2022 - 2025)</li>
-    </ul>
-    <button class="view-certifications" aria-label="View Certifications">View Certifications</button>
-  </section>
+ <!-- Education section with mature card layout and additional elements -->
+<section class="education reveal" id="education" role="region" aria-labelledby="education-heading" aria-hidden="false">
+  <h2 id="education-heading">Education & Training</h2>
+  <div class="education-grid">
+    <div class="education-card">
+      <img src="path/to/unn-logo.png" alt="University of Nigeria Logo" class="education-logo" aria-hidden="true">
+      <i class="fas fa-graduation-cap education-icon" aria-hidden="true"></i>
+      <h3 class="education-title">B.Eng. Electrical and Electronics Engineering</h3>
+      <p class="education-details">University of Nigeria, Nsukka (2017 - 2022)</p>
+      <span class="education-highlight">Second Class Upper Division</span>
+      <button class="education-toggle" aria-expanded="false" aria-controls="eng-details">Show Details</button>
+      <div class="education-details-extra" id="eng-details" aria-hidden="true">
+        <p><strong>Key Coursework:</strong> Circuit Design, Signal Processing, Control Systems, Power Electronics</p>
+      </div>
+    </div>
+    <div class="education-card">
+      <img src="path/to/alx-logo.png" alt="ALX Logo" class="education-logo" aria-hidden="true">
+      <i class="fas fa-laptop-code education-icon" aria-hidden="true"></i>
+      <h3 class="education-title">Software Engineering & Cloud Architecture Training</h3>
+      <p class="education-details">ALX, 3MTT, IHS Academy, PLP Academy (2022 - 2025)</p>
+      <span class="education-badge">Top Cohort Performer</span>
+      <button class="education-toggle" aria-expanded="false" aria-controls="training-details">Show Details</button>
+      <div class="education-details-extra" id="training-details" aria-hidden="true">
+        <p><strong>Key Skills:</strong> AWS, DevOps, Full-Stack Development, Cloud Architecture</p>
+      </div>
+    </div>
+  </div>
+  <button class="view-certifications" aria-label="View Certifications">View Certifications</button>
+</section>
 
-  <!-- Achievements section (Restored to minimal list-based structure) -->
-  <section class="achievements reveal" id="achievements" role="region" aria-labelledby="achievements-heading">
-    <h2 id="achievements-heading">Achievements</h2>
-    <ul class="achievements-list">
-      <li>Top Performer in ALX Software Engineering program (Top 5%)</li>
-      <li>AWS Certified Solutions Architect</li>
-      <li>Delivered 4+ major projects with 100% client satisfaction</li>
-      <li>Mentored over 20 aspiring developers through ALX Africa</li>
-    </ul>
-  </section>
+<!-- Achievements section with circular cards and bigger icons -->
+<section class="achievements reveal" id="achievements" role="region" aria-labelledby="achievements-heading">
+  <h2 id="achievements-heading">Achievements</h2>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <i class="fas fa-star achievement-icon" aria-hidden="true"></i>
+      <span class="achievement-text">Top Performer in ALX Software Engineering program (Top 5%)</span>
+    </div>
+    <div class="achievement-card">
+      <i class="fas fa-certificate achievement-icon" aria-hidden="true"></i>
+      <span class="achievement-text">AWS Certified Solutions Architect</span>
+    </div>
+    <div class="achievement-card">
+      <i class="fas fa-check-circle achievement-icon" aria-hidden="true"></i>
+      <span class="achievement-text">Delivered 3 major projects with 100% client satisfaction</span>
+    </div>
+    <div class="achievement-card">
+      <i class="fas fa-users achievement-icon" aria-hidden="true"></i>
+      <span class="achievement-text">Mentored over 50 aspiring developers through ALX Africa</span>
+    </div>
+  </div>
+</section>
 
   <!-- Insights & Updates section -->
   <section class="insights-updates reveal" id="insights-updates" role="region" aria-labelledby="insights-updates-heading" aria-hidden="false">

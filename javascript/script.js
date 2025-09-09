@@ -176,3 +176,13 @@ window.addEventListener('load', () => {
     bar.style.width = width;
   });
 });
+
+document.querySelectorAll('.education-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const details = document.getElementById(button.getAttribute('aria-controls'));
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !isExpanded);
+    details.setAttribute('aria-hidden', isExpanded);
+    details.style.display = isExpanded ? 'none' : 'block';
+  });
+});
