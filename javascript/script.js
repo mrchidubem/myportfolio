@@ -109,20 +109,23 @@ document.querySelectorAll('.read-more').forEach(button => {
     const previewCard = document.getElementById(`blog-${targetId.split('-')[1]}-preview`);
     const articlesSection = document.getElementById('articles');
     const insightsSection = document.getElementById('insights-updates');
+    const allArticles = document.querySelectorAll('.article-item');
 
     if (article.getAttribute('aria-hidden') === 'true') {
-      // Show article
+      // Hide all articles and show only the targeted one
+      allArticles.forEach(art => art.setAttribute('aria-hidden', 'true'));
+      article.setAttribute('aria-hidden', 'false');
       articlesSection.setAttribute('aria-hidden', 'false');
       insightsSection.setAttribute('aria-hidden', 'true');
-      article.setAttribute('aria-hidden', 'false');
       previewCard.querySelector('.preview-text').classList.add('hidden');
       button.textContent = 'Read Less';
-      articlesSection.scrollIntoView({ behavior: 'smooth' });
+      // Scroll to the specific article
+      article.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // Hide article
+      // Hide the article and show insights
+      article.setAttribute('aria-hidden', 'true');
       articlesSection.setAttribute('aria-hidden', 'true');
       insightsSection.setAttribute('aria-hidden', 'false');
-      article.setAttribute('aria-hidden', 'true');
       previewCard.querySelector('.preview-text').classList.remove('hidden');
       button.textContent = 'Read More';
       insightsSection.scrollIntoView({ behavior: 'smooth' });
