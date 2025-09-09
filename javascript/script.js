@@ -10,6 +10,20 @@ themeToggle.addEventListener('change', () => {
 // Mobile Navigation Toggle
 const navToggleBtn = document.querySelector('.nav-toggle-btn');
 const navLinks = document.querySelector('.nav-links');
+const themeControls = document.querySelector('.theme-controls');
+
+// Move theme controls into nav-links on mobile
+function handleMobileNav() {
+  if (window.innerWidth <= 768) {
+    navLinks.appendChild(themeControls);
+  } else {
+    document.querySelector('.theme-controls-wrapper').appendChild(themeControls);
+  }
+}
+
+// Run on page load and window resize
+window.addEventListener('load', handleMobileNav);
+window.addEventListener('resize', handleMobileNav);
 
 navToggleBtn.addEventListener('click', () => {
   const isExpanded = navLinks.classList.toggle('active');
