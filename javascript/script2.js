@@ -10,6 +10,20 @@ themeToggle.addEventListener('change', () => {
 // Mobile Navigation Toggle
 const navToggleBtn = document.querySelector('.nav-toggle-btn');
 const navLinks = document.querySelector('.nav-links');
+const themeControls = document.querySelector('.theme-controls');
+
+// Move theme controls into nav-links on mobile
+function handleMobileNav() {
+  if (window.innerWidth <= 768) {
+    navLinks.appendChild(themeControls);
+  } else {
+    document.querySelector('.theme-controls-wrapper').appendChild(themeControls);
+  }
+}
+
+// Run on page load and window resize
+window.addEventListener('load', handleMobileNav);
+window.addEventListener('resize', handleMobileNav);
 
 navToggleBtn.addEventListener('click', () => {
   const isExpanded = navLinks.classList.toggle('active');
@@ -95,20 +109,23 @@ document.querySelectorAll('.read-more').forEach(button => {
     const previewCard = document.getElementById(`blog-${targetId.split('-')[1]}-preview`);
     const articlesSection = document.getElementById('articles');
     const insightsSection = document.getElementById('insights-updates');
+    const allArticles = document.querySelectorAll('.article-item');
 
     if (article.getAttribute('aria-hidden') === 'true') {
-      // Show article
+      // Hide all articles and show only the targeted one
+      allArticles.forEach(art => art.setAttribute('aria-hidden', 'true'));
+      article.setAttribute('aria-hidden', 'false');
       articlesSection.setAttribute('aria-hidden', 'false');
       insightsSection.setAttribute('aria-hidden', 'true');
-      article.setAttribute('aria-hidden', 'false');
       previewCard.querySelector('.preview-text').classList.add('hidden');
       button.textContent = 'Read Less';
-      articlesSection.scrollIntoView({ behavior: 'smooth' });
+      // Scroll to the specific article
+      article.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // Hide article
+      // Hide the article and show insights
+      article.setAttribute('aria-hidden', 'true');
       articlesSection.setAttribute('aria-hidden', 'true');
       insightsSection.setAttribute('aria-hidden', 'false');
-      article.setAttribute('aria-hidden', 'true');
       previewCard.querySelector('.preview-text').classList.remove('hidden');
       button.textContent = 'Read More';
       insightsSection.scrollIntoView({ behavior: 'smooth' });
@@ -160,5 +177,15 @@ window.addEventListener('load', () => {
   document.querySelectorAll('.progress-fill').forEach(bar => {
     const width = bar.getAttribute('data-width');
     bar.style.width = width;
+  });
+});
+
+document.querySelectorAll('.education-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const details = document.getElementById(button.getAttribute('aria-controls'));
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', !isExpanded);
+    details.setAttribute('aria-hidden', isExpanded);
+    details.style.display = isExpanded ? 'none' : 'block';
   });
 });
